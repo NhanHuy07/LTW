@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <img th:src="@{/images/{path} (path = ${car.getFileName()})}">
+</div>
+  <div class="col-sm-6">
+    <label>Type</label>
+    <p th:text="${car.getType()}">Used vehicle</p>
+  </div>
+  <div class="col-sm-6">
+    <label>Name</label>
+    <p th:text="${car.getCarName()}">Lorem ipsum dolor sit</p>
+  </div>
+</body>
+</html>
