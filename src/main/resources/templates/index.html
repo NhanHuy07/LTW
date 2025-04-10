@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
   <head>
 
-    <meta charset="UFT-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"> 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet"> -->
-	  <title>FastCarVN</title>
+     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script> -->
+	  
+	  <title>VinCar</title>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;600;700;900&display=swap&subset=vietnamese" rel="stylesheet">
-
-    
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css">
 
-    <link rel="stylesheet" href="static/css/style.css" />
-	  
-	<link rel="icon" type="image/png" href="static/images/favicon_io.zip">
+    <link rel="stylesheet" href="/static/css/style.css">
+	 
+
 
     </head>
     
@@ -52,21 +49,23 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo" color="#"><em>FastCarVN</em></a>
+                        <a th:href="@{/}" class="logo" color="#"><em>V I N C A R</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.html" >Trang chủ</a></li>
-                            <li><a href="cars.html">Xe</a></li>
+                            <li><a th:href="@{/}"class="active">Trang chủ</a></li>
+                            <li><a th:href="@{/cars}">Xe</a></li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Thêm</a>
-                                <div class="dropdown-menu">
-                                    
+  							<a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+   							 Thêm
+							</a>
+							  <div class="dropdown-menu">
                                     <a class="dropdown-item" href="blog.html">Tin tức</a>
                                     <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
                                     <a class="dropdown-item" href="terms.html">Terms</a>
                                 </div>
-                            </li>
+							</li>
+
                             <li><a href="contact.html">Liên hệ</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
@@ -110,7 +109,7 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <video autoplay muted loop id="bg-video">
-            <source src="static/images/video.mp4" type="video/mp4" />
+            <source src="/static/images/Thiết kế chưa có tên (1).mp4" type="video/mp4" />
         </video>
 
         <div class="video-overlay header-text">
@@ -126,7 +125,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Featured <em>Cars</em></h2>
-                        <img src="static/images/line-dec.png" alt="">
+                        <img src="/static/images/line-dec.png" alt="">
                         <p>alô một m, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
                     </div>
                 </div>
@@ -134,8 +133,11 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="trainer-item">
+<!--                        <div class="image-thumb">-->
+<!--                            <img th:src="@{/images/{path} (path = ${car.getFileName()})}" alt="">-->
+<!--                        </div>-->
                         <div class="image-thumb">
-                            <img src="static/images/product-1-720x480.jpg" alt="">
+                            <img th:src="@{/images/audi_4.jpg}" alt="">
                         </div>
                         <div class="down-content">
                             <span>
@@ -145,13 +147,13 @@
                             <h4>Lorem ipsum dolor sit amet, consectetur</h4>
 
                             <p>
-                                <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-dashboard" ></i> 130 000km &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
                                 <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="car.html">Xem thêm</a></li>
+                                <li><a href="car-details.html">Xem thêm</a></li>
                             </ul>
                         </div>
                     </div>
@@ -159,7 +161,7 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="static/images/product-2-720x480.jpg" alt="">
+                            <img src="/static/images/product-2-720x480.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>
@@ -174,7 +176,7 @@
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="car.html">Xem thêm</a></li>
+                                <li><a href="car-details.html">Xem thêm</a></li>
                             </ul>
                         </div>
                     </div>
@@ -182,7 +184,7 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="static/images/product-3-720x480.jpg" alt="">
+                            <img src="/static/images/product-3-720x480.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>
@@ -198,7 +200,7 @@
                             </p>
 
                             <ul class="social-icons">
-                                <li><a href="car.html">Xem thêm</a></li>
+                                <li><a href="car-details.html">Xem thêm</a></li>
                             </ul>
                         </div>
                     </div>
@@ -208,19 +210,19 @@
             <br>
 
             <div class="main-button text-center">
-                <a href="cars.html">Xem thêm</a>
+                <a th:href="@{/cars}">Xem thêm</a>
             </div>
         </div>
     </section>
     <!-- ***** Cars Ends ***** -->
 
-    <section class="section section-bg" id="schedule" style="background-image: url(static/images/about-fullscreen-1-1920x700.jpg)">
+    <section class="section section-bg" id="schedule" style="background-image: url(/static/images/about-fullscreen-1-1920x700.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading dark-bg">
                         <h2> ưng  <em>FastCarVN </em></h2>
-                        <img src="static/images/line-dec.png" alt="">
+                        <img src="/static/images/line-dec.png" alt="">
                         <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
                     </div>
                 </div>
@@ -244,7 +246,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2> <em>Blog</em></h2>
-                        <img src="static/images/line-dec.png" alt="">
+                        <img src="/static/images/line-dec.png" alt="">
                         <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
                     </div>
                 </div>
@@ -261,7 +263,7 @@
               <div class="col-lg-8">
                 <section class="tabs-content">
                   <article id="tabs-1">
-                    <img src="static/images/blog-image-1-940x460.jpg" alt="">
+                    <img src="/static/images/blog-image-1-940x460.jpg" alt="">
                     <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
 
                     <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
@@ -272,7 +274,7 @@
                     </div>
                   </article>
                   <article id="tabs-2">
-                    <img src="static/images/blog-image-2-940x460.jpg" alt="">
+                    <img src="/static/images/blog-image-2-940x460.jpg" alt="">
                     <h4>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</h4>
                     <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
                     <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
@@ -281,7 +283,7 @@
                     </div>
                   </article>
                   <article id="tabs-3">
-                    <img src="static/images/blog-image-3-940x460.jpg" alt="">
+                    <img src="/static/images/blog-image-3-940x460.jpg" alt="">
                     <h4>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</h4>
                     <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
                     <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
@@ -297,7 +299,7 @@
     <!-- ***** Blog End ***** -->
 
     <!-- ***** Call to Action Start ***** -->
-    <section class="section section-bg" id="call-to-action" style="background-image: url(static/images/banner-image-1-1920x500.jpg)">
+    <section class="section section-bg" id="call-to-action" style="background-image: url(/static/images/5b442f8b6c62f09d8ba63726c27895e0.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -321,7 +323,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Read our <em>Testimonials</em></h2>
-                        <img src="static/images/line-dec.png" alt="waves">
+                        <img src="/static/images/line-dec.png" alt="waves">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem incidunt alias minima tenetur nemo necessitatibus?</p>
                     </div>
                 </div>
@@ -329,7 +331,7 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="static/images/features-first-icon.png" alt="First One">
+                                <img src="/static/images/features-first-icon.png" alt="First One">
                             </div>
                             <div class="right-content">
                                 <h4>John Doe</h4>
@@ -338,7 +340,7 @@
                         </li>
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="static/images/features-first-icon.png" alt="second one">
+                                <img src="/static/images/features-first-icon.png" alt="second one">
                             </div>
                             <div class="right-content">
                                 <h4>John Doe</h4>
@@ -351,7 +353,7 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="static/images/features-first-icon.png" alt="fourth muscle">
+                                <img src="/static/images/features-first-icon.png" alt="fourth muscle">
                             </div>
                             <div class="right-content">
                                 <h4>John Doe</h4>
@@ -360,7 +362,7 @@
                         </li>
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="static/images/features-first-icon.png" alt="training fifth">
+                                <img src="/static/images/features-first-icon.png" alt="training fifth">
                             </div>
                             <div class="right-content">
                                 <h4>John Doe</h4>
@@ -403,22 +405,22 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="static/js/jquery-2.1.0.min.js"></script>
+    <script src="/static/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="static/js/popper.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="static/js/scrollreveal.min.js"></script>
-    <script src="static/js/waypoints.min.js"></script>
-    <script src="static/js/jquery.counterup.min.js"></script>
-    <script src="static/js/imgfix.min.js"></script> 
-    <script src="static/js/mixitup.js"></script> 
-    <script src="static/js/accordions.js"></script>
+    <script src="/static/js/scrollreveal.min.js"></script>
+    <script src="/static/js/waypoints.min.js"></script>
+    <script src="/static/js/jquery.counterup.min.js"></script>
+    <script src="/static/js/imgfix.min.js"></script> 
+    <script src="/static/js/mixitup.js"></script> 
+    <script src="/static/js/accordions.js"></script>
     
     <!-- Global Init -->
-    <script src="static/js/custom.js"></script>
+    <script src="/static/js/custom.js"></script>
 <!-- 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script> -->
