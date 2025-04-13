@@ -145,6 +145,7 @@ body {
 
 .dark-bg p {
   color: #fff;
+  font-size: 15px;
 }
 
 .main-button a {
@@ -267,7 +268,7 @@ header
 }
 
 .header-area .main-nav .nav li a {
-  color: #fff;
+  color: #232d39;
 }
 
 .header-area .main-nav .nav li:hover > a,
@@ -530,6 +531,10 @@ banner
 --------------------------------------------- 
 */
 
+.header-area {
+  position: relative;
+  z-index: 10;
+}
 .main-banner {
   position: relative;
 }
@@ -612,7 +617,8 @@ features
 }
 
 .feature-item .right-content {
-  display: inline;
+  display: block;
+  width: 100%;
 }
 
 .feature-item .right-content h4 {
@@ -799,7 +805,10 @@ schedule
 #schedule {
   padding: 0px 0px 140px 0px;
 }
-
+#schedule .section-heading {
+  margin-top: 140px;
+  margin-bottom: 20px;
+}
 #schedule table {
   width: 100%;
   text-align: center;
@@ -914,12 +923,14 @@ trainers
 }
 
 #trainers .trainer-item span {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: #00CCCC;
-  display: inline-block;
-  margin-top: 25px;
+  display: block;
+  margin-top: 20px;
   margin-bottom: 10px;
+  text-align: right;
+  padding-right: 20px;
 }
 
 #trainers .trainer-item h4 {
@@ -1124,7 +1135,11 @@ preloader
         transform: translateX(-31px);
     }
 }
-
+.highlight-text {
+    font-size: 15px;
+    font-weight: bold;
+    color: #222222; /* Màu đậm */
+  }
 .preloader-inner {
     position: relative;
     width: 142px;
@@ -1210,15 +1225,14 @@ responsive
 }
 
 .dropdown-menu {
-  background: rgba(0,0,0,0.2);
+  background: rgba(250,250,250,1);
   padding: 0;
   border-radius: 0;
 }
 
 .background-header .dropdown-menu {
-  background: rgba(250,250,250,0.9);
+  background: #f7f7f7;
 }
-
 .dropdown-menu a {
   line-height: 1.3;
   color: #fff;
