@@ -1,42 +1,68 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-        .form-control {
-            border-radius: 8px;
-        }
-        .btn-primary {
-            width: 100%;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .text-center a {
-            text-decoration: none;
-        }
-    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	 <title>Đăng Nhập | VinCar</title>
+	 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <div class="login-container">
+<body >
+	<header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo" color="#"><em>V I N C A R</em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="cars.html">Xe</a></li>
+                            <li class="dropdown">
+  							<a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+   							 Thêm
+							</a>
+							  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="blog.html">Tin tức</a>
+                                    <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
+                                    <a class="dropdown-item" href="terms.html">Terms</a>
+                                </div>
+							</li>
+
+                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >Tài khoản</a>
+                                <div class="dropdown-menu">
+                                    <!-- Kích hoạt iframe đăng nhập -->
+                                    <a class="dropdown-item" href="login.html">Đăng nhập</a>
+                                    <!-- Kích hoạt iframe đăng ký -->
+                                    <a class="dropdown-item" href="register.html">Đăng ký</a>
+                                </div>
+                            </li>
+                            
+                            
+                                                            
+                        </ul>        
+                        
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+	</header>
+	
+    <div class="d-flex justify-content-center " style="padding-top: 80px; padding-bottom: 160px;background-color: #dcdcdc">
+    <div class="card shadow-lg p-4" style="width: 400px;">
         <h3 class="text-center mb-4">Đăng nhập</h3>
         <form>
             <div class="mb-3">
@@ -53,11 +79,24 @@
                     <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
             <p class="text-center mt-3"><a href="#">Quên mật khẩu?</a></p>
         </form>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+	<script src="assets/js/jquery-2.1.0.min.js"></script>
+	
+	<script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	
+	<script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    <script src="assets/js/mixitup.js"></script> 
+    <script src="assets/js/accordions.js"></script>
+	
+	<script src="assets/js/custom.js"></script>
 </body>
 </html>
+
