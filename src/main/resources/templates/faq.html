@@ -55,6 +55,12 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+				 <div class="nav-search">
+               			 <form action="search.html" method="GET" class="search-form">
+                  	 	 <input type="text" name="query" placeholder="Nhập thông tin tìm kiếm ..." />
+                  		  <button type="submit"><i class="fa fa-search"></i></button>
+               			 </form>
+            			</div>
                             <li><a href="index.html">Trang chủ</a></li>
                             <li><a href="cars.html">Xe</a></li>
                             <li class="dropdown">
@@ -67,8 +73,9 @@
                                 </div>
                             </li>
                             <li><a href="contact.html">Liên hệ</a></li> 
-							<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
+				<li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					<img src="static/images/avatar.jpg" alt="" class="avatar">Tài khoản</a>
                                 <div class="dropdown-menu">
                                     <!-- Kích hoạt iframe đăng nhập -->
                                     <a class="dropdown-item" href="login.html">Đăng nhập</a>
