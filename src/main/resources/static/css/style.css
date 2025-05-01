@@ -197,7 +197,63 @@ header
 .background-header .nav li a.active {
   color: #00CCCC!important;
 }
+@media (max-width: 900px) {
+  .nav-search {
+    display: none;
+  }
+}
 
+
+.search-form {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.search-form input[type="text"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-form button {
+  padding: 8px 12px;
+  background-color: #00CCCC;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #0099aa;
+}
+
+.search-form i.fa {
+  font-size: 16px;
+}
+.nav-search {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;  /* Đảm bảo thanh tìm kiếm nằm ở phía trái */
+  margin: 0 50px 0 0; /* Đã dịch trái bằng cách bỏ bớt margin bên trái */
+  transform: translateX(-20px); /* Dịch phần search sang trái 20px */
+  width: 100%;  /* Giúp thanh tìm kiếm chiếm toàn bộ chiều rộng */
+  max-width: 900px;  /* Giới hạn chiều rộng tối đa nếu cần */
+}
+.avatar {
+  width: 40px;   /* Kích thước avatar */
+  height: 40px;  /* Kích thước avatar */
+  border-radius: 50%;  /* Tạo hình tròn */
+  margin-right: 10px;  /* Khoảng cách giữa avatar và chữ "Tài khoản" */
+  vertical-align: middle; /* Canh giữa ảnh với văn bản */
+}
 .header-area {
   position: absolute;
   top: 0px;
