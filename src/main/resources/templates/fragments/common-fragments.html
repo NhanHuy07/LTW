@@ -33,6 +33,66 @@
   <script src="/static/js/custom.js"></script>
 </div>
 
+<div th:fragment="header" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a th:href="@{/}" class="logo"><em>v i n c a r</em></a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a th:href="@{/}">Trang chủ</a></li>
+              <li><a th:href="@{/cars}" class="active">Xe</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Thêm</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="blog.html">Tin tức</a>
+                  <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
+                  <a class="dropdown-item" href="terms.html">Terms</a>
+                </div>
+              </li>
+              <li><a href="/contact">Liên hệ</a></li>
+
+              <!-- Phần hiển thị khi chưa đăng nhập -->
+              <th:block sec:authorize="!isAuthenticated()">
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{/login}">Đăng nhập</a>
+                    <a class="dropdown-item" th:href="@{/register}">Đăng ký</a>
+                  </div>
+                </li>
+              </th:block>
+
+              <!-- Phần hiển thị khi đã đăng nhập -->
+              <th:block sec:authorize="isAuthenticated()">
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span th:text="'Xin chào,' + ${#authentication.principal.name}"></span>
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{/user}">Trang người dùng</a>
+                    <a class="dropdown-item" th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
+                    </a>
+                    <form id="logout-form" th:action="@{/logout}" method="post" style="display: none;"></form>
+                  </div>
+                </li>
+              </th:block>
+            </ul>
+            <a class="menu-trigger">
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
 <!--pagination-->
 <th:block th:fragment="pagination">
   <ul class="pagination d-flex justify-content-between " th:classappend="${class}"
@@ -81,4 +141,8 @@
       </th:block>
     </div>
   </ul>
+</th:block>
+
+<th:block th:fragment="alert-message">
+  <div th:if="${messageType}" class="alert " th:classappend="${messageType}" th:text="${message}" role="alert"></div>
 </th:block>

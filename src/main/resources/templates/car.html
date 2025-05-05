@@ -22,48 +22,7 @@
 
 
 <!-- ***** Header Area Start ***** -->
-<header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a th:href="@{/}" class="logo"><em>v i n c a r</em></a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a th:href="@{/}">Trang chủ</a></li>
-                        <li><a th:href="@{/cars}" class="active">Xe</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Thêm</a>
-
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="blog.html">Tin tức</a>
-                                <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
-                                <a class="dropdown-item" href="terms.html">Terms</a>
-                            </div>
-                        </li>
-                        <li><a href="contact.html">Liên hệ</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
-                            <div class="dropdown-menu">
-                                <!-- Kích hoạt iframe đăng nhập -->
-                                <a class="dropdown-item" href="login.html">Đăng nhập</a>
-                                <!-- Kích hoạt iframe đăng ký -->
-                                <a class="dropdown-item" href="register.html">Đăng ký</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <a class="menu-trigger">
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- ***** Header Area End ***** -->
+<div th:replace="~{fragments/common-fragments :: header}"></div><!-- ***** Header Area End ***** -->
 
 <!-- ***** Call to Action Start ***** -->
 <section class="section section-bg" id="call-to-action" style="background-image: url(/static/images/banner-image-1-1920x500.jpg)">

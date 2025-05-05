@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,20 +37,24 @@
 </head>
 <body>
     <div class="login-container">
+        <div th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']}" class="alert alert-danger col-sm-8 mt-3" role="alert">
+            Email hoặc mật khẩu không hợp lệ!
+        </div>
+        <th:block th:replace="fragments/common-fragments :: alert-message"/>
         <h3 class="text-center mb-4">Đăng nhập</h3>
-        <form>
+        <form method="post" action="/login">
             <div class="mb-3">
-                <label for="loginEmail" class="form-label">Email</label>
+                <label class="form-label">Email</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    <input type="email" class="form-control" id="loginEmail" placeholder="Nhập email" required>
+                    <input type="email" class="form-control" name="username" placeholder="Nhập email" required>
                 </div>
             </div>
             <div class="mb-3">
-                <label for="loginPassword" class="form-label">Mật khẩu</label>
+                <label class="form-label">Mật khẩu</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
+                    <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" required>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Đăng nhập</button>

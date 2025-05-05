@@ -1,14 +1,17 @@
 package com.example.demo.utils;
 
 
+import com.example.demo.dto.response.MessageResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Component
@@ -17,6 +20,40 @@ public class ControllerUtils {
     public <T> void addPagination(Model model, Page<T> page) {
         model.addAttribute("pagination", computePagination(page));
         model.addAttribute("page", page);
+    }
+    public boolean validateInputField(Model model, MessageResponse messageResponse, String attributeKey, Object attributeValue) {
+        if (!messageResponse.getResponse().contains("success")) {
+            model.addAttribute(messageResponse.getResponse(), messageResponse.getMessage());
+            model.addAttribute(attributeKey, attributeValue);
+            return true;
+        }
+        return false;
+    }
+    public boolean  validateInputFields(BindingResult bindingResult, Model model, String attributeKey, Object attributeValue) {
+        if (bindingResult.hasErrors()) {
+            model.mergeAttributes(getErrors(bindingResult));
+            model.addAttribute(attributeKey, attributeValue);
+            return true;
+        }
+        return false;
+    }
+    public String setAlertMessage(Model model, String page, MessageResponse messageResponse) {
+        model.addAttribute("messageType", messageResponse.getResponse());
+        model.addAttribute("message", messageResponse.getMessage());
+        return page;
+    }
+
+    public String setAlertFlashMessage(RedirectAttributes redirectAttributes, String page, MessageResponse messageResponse) {
+        redirectAttributes.addFlashAttribute("messageType", messageResponse.getResponse());
+        redirectAttributes.addFlashAttribute("message", messageResponse.getMessage());
+        return "redirect:" + page;
+    }
+    private Map<String, String> getErrors(BindingResult bindingResult) {
+        Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap(
+                fieldError -> fieldError.getField() + "Error",
+                FieldError::getDefaultMessage
+        );
+        return bindingResult.getFieldErrors().stream().collect(collector);
     }
     private int[] computePagination(Page<?> page) {
         Integer totalPages = page.getTotalPages();
