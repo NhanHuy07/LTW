@@ -1,31 +1,33 @@
 package com.example.demo.entity;
 
-
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "car_owner")
 public class CarOwner {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(nullable = false, length = 255)
     private String name;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", nullable = false, length = 20)
     private String phoneNumber;
 
-    @Column(name = "email")
+    @Column(nullable = false, unique = true, length = 255)
     private String email;
 
-    @Column(name = "address")
+    @Column(nullable = false, length = 500)
     private String address;
 
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Car> cars = new ArrayList<>();
 }

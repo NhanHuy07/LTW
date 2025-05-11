@@ -1,0 +1,95 @@
+<th:block th:fragment="account-sidebar" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <div class="col-md-2">
+    <h4>
+      <i class="fas fa-user-edit mr-1"></i>
+      Tài khoản
+    </h4>
+    <a class="account-sidebar-link nav-link" href="/user/info">Thông tin cá nhân</a>
+    <a class="account-sidebar-link nav-link" href="/user/reset">Đổi mật khẩu</a>
+    <!--    <th:block sec:authorize="hasAuthority('ADMIN')">-->
+    <!--      <a class="account-sidebar-link nav-link" href="/admin/add/product">Thêm sản phẩm</a>-->
+    <!--      <a class="account-sidebar-link nav-link" href="/admin/products">Danh sách sản phẩm</a>-->
+    <!--      <a class="account-sidebar-link nav-link" href="/admin/orders">Danh sách các đơn hàng</a>-->
+    <!--      <a class="account-sidebar-link nav-link" href="/admin/users">Danh sách người dùng</a>-->
+    <!--    </th:block>-->
+    <!--    <th:block sec:authorize="hasAuthority('USER')">-->
+    <!--      <a class="account-sidebar-link nav-link" href="/order/user/orders">Danh sách các đơn hàng</a>-->
+    <!--    </th:block>-->
+  </div>
+</th:block>
+
+<th:block th:fragment="user-info">
+  <div class="col-md-4 mb-5">
+    <th:block th:replace="~{fragments/common-fragments :: info-title(
+            text='Trang cá nhân',
+            icon='fas fa-address-card mr-2'
+        )}"/>
+    <th:block th:replace="~{fragments/common-fragments :: alert-message}"/>
+    <th:block th:replace="~{fragments/common-fragments :: data-item(title='Email', text=${user.getEmail()})}" />
+    <th:block th:replace="~{fragments/common-fragments :: data-item(title='Tên', text=${user.getName()})}" />
+    <th:block th:replace="~{fragments/common-fragments :: data-item(title='Địa chỉ', text=${user.getAddress()})}" />
+    <th:block th:replace="~{fragments/common-fragments :: data-item(title='Số điện thoại', text=${user.getPhoneNumber()})}" />
+    <a th:with="isUserEditOpen=${isEditMode}"
+       th:href="@{${isUserEditOpen} ? '/user/info' : '/user/info/edit'}"
+       role="button">
+      <th:block th:replace="~{fragments/common-fragments :: icon-button(
+                text=(${isUserEditOpen} ? 'Ẩn' : 'Thay đổi'),
+                icon=(${isUserEditOpen} ? 'fas fa-eye-slash mr-2' : 'fas fa-edit mr-2'),
+                buttonClassName='mt-2'
+            )}"/>
+    </a>
+  </div>
+</th:block>
+
+<th:block th:fragment="edit-product-input">
+  <div class="form-group row">
+    <label class="col-sm-4 font-weight-bold col-form-label" th:text="${title} + ':'"></label>
+    <div class="col-sm-8">
+      <input
+              type="text"
+              th:name="${name}"
+              th:value="${value}"
+              class="form-control" th:classappend="${error} ? ' is-invalid'"
+      />
+      <div th:if="${error}" class="invalid-feedback" th:text="${error}"></div>
+    </div>
+  </div>
+</th:block>
+
+<th:block th:fragment="edit-product-select">
+  <div class="form-group row">
+    <label class="col-sm-4 font-weight-bold col-form-label" th:text="${title} + ':'"></label>
+    <div class="col-sm-8">
+      <select th:name="${name}" class="form-control" th:classappend="${error} ? ' is-invalid'">
+        <option th:each="option : ${options}" th:value="${option}" th:text="${option}"
+                th:selected="${value == option}"></option>
+      </select>
+      <div th:if="${error}" class="invalid-feedback" th:text="${error}"></div>
+    </div>
+  </div>
+</th:block>
+
+<th:block th:fragment="add-product-input">
+  <div class="col">
+    <label th:text="${title} + ':'"></label>
+    <input
+            type="text"
+            th:name="${name}"
+            th:placeholder="${placeholder}"
+            th:value="${value}"
+            class="form-control" th:classappend="${error} ? ' is-invalid'"
+    />
+    <div th:if="${error}" class="invalid-feedback" th:text="${error}"></div>
+  </div>
+</th:block>
+
+<th:block th:fragment="add-product-select">
+  <div class="col">
+    <label th:text="${title} + ':'"></label>
+    <select th:name="${name}" class="form-control" th:classappend="${error} ? ' is-invalid'">
+      <option hidden value=""></option>
+      <option th:each="option : ${options}" th:value="${option}" th:text="${option}"></option>
+    </select>
+    <div th:if="${error}" class="invalid-feedback" th:text="${error}"></div>
+  </div>
+</th:block>

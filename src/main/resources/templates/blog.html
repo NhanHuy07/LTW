@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
   <head>
 
@@ -40,58 +42,17 @@
     
     
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo"><em>v i n c a r</em></a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.html">TRANG CHỦ</a></li>
-                            <li><a href="cars.html">Xe</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Thêm</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="blog.html">Tin tức</a>
-                                    <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
-                                    <a class="dropdown-item" href="terms.html">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.html">Liên hệ</a></li> 
-							<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
-                                <div class="dropdown-menu">
-                                    <!-- Kích hoạt iframe đăng nhập -->
-                                    <a class="dropdown-item" href="login.html">Đăng nhập</a>
-                                    <!-- Kích hoạt iframe đăng ký -->
-                                    <a class="dropdown-item" href="register.html">Đăng ký</a>
-                                </div>
-                            </li>
-                        </ul>        
-                        <a class="menu-trigger">
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div th:replace="~{fragments/common-fragments :: header}"></div>
     <!-- ***** Header Area End ***** -->
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url(/static/images/banner-image-1-1920x500.jpg)">
+    <section class="section section-bg" id="call-to-action" style="background-image: url(static/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
-                        <br>
-                        <br>
-                        <h2><em>Blog</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <br><br>
+                        <h2><em>Tin tức</em></h2>
+                        <p>Nơi cập nhật các thông tin mới nhất về sản phẩm và dịch vụ của VinCar</p>
                     </div>
                 </div>
             </div>
@@ -101,81 +62,78 @@
     <!-- ***** Blog Start ***** -->
     <section class="section" id="our-classes">
         <div class="container">
-            <br>
-            <br>
+            <br><br>
             <div class="row">
                 <div class="col-lg-8">
                     <section class="tabs-content">
-                      <article>
-                        <img src="/static/images/blog-image-1-940x460.jpg" alt="">
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
 
-                        <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                        <!-- Bài viết 1 -->
+                        <article>
+                            <img src="/static/images/blog-image-1-940x460.jpg" alt="">
+                            <h4>VinFast VF e9 chính thức ra mắt – SUV điện đẳng cấp mới.</h4>
+                            <p><i class="fa fa-user"></i> VinCar Team &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i> 18 bình luận</p>
+                            <p>VinFast vừa ra mắt mẫu SUV điện cao cấp VF e9 với thiết kế sang trọng, nội thất rộng rãi và công nghệ tự lái cấp độ 3. Xe có tầm hoạt động lên đến 600km sau một lần sạc đầy, là lựa chọn lý tưởng cho những chuyến đi dài và trải nghiệm lái cao cấp.</p>
+                            <div class="main-button">
+                                <a href="/blog-details">Đọc Tiếp</a>
+                            </div>
+                        </article>
 
-                        <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-                        <div class="main-button">
-                            <a href="blog-details.html">Continue Reading</a>
-                        </div>
-                      </article>
+                        <br><br>
 
-                      <br>
-                      <br>
+                        <!-- Bài viết 2 -->
+                        <article>
+                            <img src="/static/images/blog-image-2-940x460.jpg" alt="">
+                            <h4>So sánh VF6 và VF7: Chọn mẫu xe điện nào cho gia đình bạn?</h4>
+                            <p><i class="fa fa-user"></i> VinCar Team &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i> 10 bình luận</p>
+                            <p>VF6 và VF7 là hai mẫu xe điện cỡ trung với thiết kế hiện đại và mức giá hợp lý. Bài viết này sẽ giúp bạn so sánh chi tiết về hiệu năng, công nghệ, không gian nội thất và mức tiêu thụ năng lượng để dễ dàng đưa ra quyết định phù hợp với nhu cầu sử dụng.</p>
+                            <div class="main-button">
+                                <a href="/blog-details">Đọc Tiếp</a>
+                            </div>
+                        </article>
 
-                      <article>
-                        <img src="/static/images/blog-image-2-940x460.jpg" alt="">
-                        <h4>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</h4>
-                        <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                        <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                        <div class="main-button">
-                            <a href="blog-details.html">Continue Reading</a>
-                        </div>
-                      </article>
+                        <br><br>
 
-                      <br>
-                      <br>
-
-                      <article>
-                        <img src="/static/images/blog-image-3-940x460.jpg" alt="">
-                        <h4>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</h4>
-                        <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                        <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
-                        <div class="main-button">
-                            <a href="blog-details.html">Continue Reading</a>
-                        </div>
-                      </article>
+                        <!-- Bài viết 3 -->
+                        <article>
+                            <img src="/static/images/blog-image-3-940x460.jpg" alt="">
+                            <h4>5 lý do nên chọn ô tô điện VinCar trong năm 2025.</h4>
+                            <p><i class="fa fa-user"></i> VinCar Team &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i> 22 bình luận</p>
+                            <p>Không chỉ thân thiện với môi trường, xe điện VinCar còn mang đến trải nghiệm lái mượt mà, chi phí vận hành thấp, bảo hành vượt trội và mạng lưới trạm sạc phủ khắp cả nước. Đây là thời điểm lý tưởng để chuyển đổi sang phương tiện xanh và thông minh.</p>
+                            <div class="main-button">
+                                <a href="/blog-details">Đọc Tiếp</a>
+                            </div>
+                        </article>
                     </section>
                 </div>
 
+                <!-- Sidebar phải -->
                 <div class="col-lg-4">
-                    <h5 class="h5">Search</h5>
-                    
+                    <h5 class="h5">Tìm kiếm</h5>
                     <div class="contact-form">
                         <form id="search_form" name="gs" method="GET" action="#">
-                          <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+                            <input type="text" name="q" class="searchText" placeholder="Nhập từ khóa..." autocomplete="on">
                         </form>
                     </div>
 
-                    <h5 class="h5">Recent posts</h5>
-
+                    <h5 class="h5">Bài viết gần đây</h5>
                     <ul>
                         <li>
-                            <p><a href="blog-details.html">Dolorum corporis ullam, reiciendis inventore est repudiandae</a></p>
-                            <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
+                            <p><a href="/blog-details">VinFast VF e9 chính thức ra mắt – SUV điện đẳng cấp mới.</a></p>
+                            <small><i class="fa fa-user"></i> VinCar Team &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
                         </li>
 
                         <li><br></li>
 
                         <li>
-                            <p><a href="blog-details.html">Culpa ab quasi in rerum dolorum impedit expedita</a></p>
-                            <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
+                            <p><a href="/blog-details">So sánh VF6 và VF7: Chọn mẫu xe điện nào cho gia đình bạn?</a></p>
+                            <small><i class="fa fa-user"></i> VinCar Team &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
                         </li>
 
                         <li><br></li>
 
                         <li>
-                          <p><a href="blog-details.html">Explicabo soluta corrupti dolor doloribus optio dolorum</a></p>
-
-                          <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
+                            <p><a href="/blog-details">5 lý do nên chọn ô tô điện VinCar trong năm 2025.</a></p>
+                            <small><i class="fa fa-user"></i> VinCar Team &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
                         </li>
                     </ul>
                 </div>

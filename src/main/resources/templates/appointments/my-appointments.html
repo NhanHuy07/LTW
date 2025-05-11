@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments/common-fragments :: head}">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding-top: 20px;
+      }
+      .appointment-card {
+        margin-bottom: 20px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        border-radius: 8px;
+      }
+      .status-pending {
+        background-color: #ffc107;
+        color: #212529;
+      }
+      .status-confirmed {
+        background-color: #28a745;
+        color: white;
+      }
+      .status-canceled {
+        background-color: #dc3545;
+        color: white;
+      }
+      .status-badge {
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <div th:replace="~{fragments/common-fragments :: header}"></div>
+
+    <section class="section">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2>Lịch hẹn <em>của tôi</em></h2>
+              <img src="/static/images/line-dec.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Thông báo -->
+        <div
+          th:if="${success}"
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          <span th:text="${success}">Thông báo thành công</span>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div
+          th:if="${error}"
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <span th:text="${error}">Thông báo lỗi</span>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- Danh sách lịch hẹn -->
+        <div th:if="${not #lists.isEmpty(appointments)}">
+          <div
+            th:each="appointment : ${appointments}"
+            class="card appointment-card mb-4"
+          >
+            <div
+              class="card-header d-flex justify-content-between align-items-center"
+            >
+              <h5
+                class="mb-0"
+                th:text="${appointment.car != null ? appointment.car.carName : 'Không có thông tin xe'}"
+              >
+                Tên xe
+              </h5>
+              <span
+                class="status-badge"
+                th:classappend="${'status-' + #strings.toLowerCase(appointment.status)}"
+                th:text="${appointment.status}"
+                >Trạng thái</span
+              >
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <p>
+                    <strong>Ngày hẹn:</strong>
+                    <span
+                      th:text="${#temporals.format(appointment.appointmentDate, 'dd/MM/yyyy HH:mm')}"
+                      >Ngày giờ</span
+                    >
+                  </p>
+                  <p>
+                    <strong>Tên:</strong>
+                    <span th:text="${appointment.name}">Tên</span>
+                  </p>
+                  <p>
+                    <strong>Email:</strong>
+                    <span th:text="${appointment.email}">Email</span>
+                  </p>
+                  <p>
+                    <strong>Số điện thoại:</strong>
+                    <span th:text="${appointment.phoneNumber}"
+                      >Số điện thoại</span
+                    >
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <p th:if="${appointment.message}">
+                    <strong>Ghi chú:</strong>
+                    <span th:text="${appointment.message}">Ghi chú</span>
+                  </p>
+                  <div class="mt-4 text-right">
+                    <a
+                      th:href="@{/car/{id}(id=${appointment.car != null ? appointment.car.id : ''})}"
+                      class="btn btn-outline-primary mr-2"
+                    >
+                      <i class="fas fa-car"></i> Xem xe
+                    </a>
+                    <a
+                      th:if="${appointment.status == 'PENDING'}"
+                      th:href="@{/appointments/cancel/{id}(id=${appointment.id})}"
+                      class="btn btn-outline-danger"
+                      onclick="return confirm('Bạn có chắc chắn muốn hủy lịch hẹn này?')"
+                    >
+                      <i class="fas fa-times"></i> Hủy lịch hẹn
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Không có lịch hẹn -->
+        <div th:if="${#lists.isEmpty(appointments)}" class="text-center py-5">
+          <i class="fas fa-calendar-times fa-4x text-muted mb-3"></i>
+          <h3>Bạn chưa có lịch hẹn nào</h3>
+          <p>Hãy chọn xe bạn quan tâm và đặt lịch để xem xe trực tiếp</p>
+          <a href="/cars" class="btn btn-primary mt-3">
+            <i class="fas fa-car"></i> Xem các xe
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div th:replace="~{fragments/common-fragments :: footer}"></div>
+    <div th:replace="~{fragments/common-fragments :: scripts}"></div>
+  </body>
+</html>

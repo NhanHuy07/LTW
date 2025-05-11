@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
   <head>
 
@@ -37,58 +39,18 @@
     
     
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo"><em>V i n c a r</em></a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="cars.html">Xe</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Thêm</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="blog.html">Tin tức</a>
-                                    <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
-                                    <a class="dropdown-item" href="terms.html">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.html">Liên hệ</a></li> 
-							<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
-                                <div class="dropdown-menu">
-                                    <!-- Kích hoạt iframe đăng nhập -->
-                                    <a class="dropdown-item" href="login.html">Đăng nhập</a>
-                                    <!-- Kích hoạt iframe đăng ký -->
-                                    <a class="dropdown-item" href="register.html">Đăng ký</a>
-                                </div>
-                            </li>
-                        </ul>        
-                        <a class="menu-trigger">
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div th:replace="~{fragments/common-fragments :: header}"></div>
     <!-- ***** Header Area End ***** -->
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url(/static/images/banner-image-1-1920x500.jpg)">
+    <section class="section section-bg" id="call-to-action" style="background-image: url(static/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Single <em>blog post</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>Chi tiết <em>bài viết</em></h2>
+                        <p>Nơi chia sẻ thông tin, tin tức và xu hướng mới nhất về xe và công nghệ ô tô</p>
                     </div>
                 </div>
             </div>
@@ -98,107 +60,104 @@
     <!-- ***** Blog Start ***** -->
     <section class="section" id="our-classes">
         <div class="container">
-            <br>
-            <br>
+            <br><br>
             <section class="tabs-content">
-              <article>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                <article>
+                    <h4>Giới thiệu mẫu xe mới và xu hướng tương lai của ô tô điện</h4>
 
-                <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                    <p><i class="fa fa-user"></i> Nguyễn Văn A &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i> 15 bình luận</p>
 
-                <div><img src="/static/images/blog-image-fullscren-1-1920x700.jpg" alt=""></div>
+                    <div><img src="/static/images/blog-image-fullscren-1-1920x700.jpg" alt=""></div>
 
-                <br>
+                    <br>
 
-                <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
+                    <p>Sự phát triển của ngành công nghiệp ô tô điện đang mở ra nhiều cơ hội đổi mới. Những mẫu xe hiện đại không chỉ thân thiện với môi trường mà còn tích hợp nhiều công nghệ thông minh nhằm mang lại trải nghiệm tốt nhất cho người dùng.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nihil magnam magni perferendis sit, inventore maxime architecto ab officia illum vitae veritatis asperiores laborum quaerat ratione omnis, possimus, sunt quae?</p>
+                    <p>Các hãng xe hiện nay đang tập trung vào thiết kế tối ưu, cải tiến pin để gia tăng quãng đường di chuyển cũng như hỗ trợ sạc nhanh. Hệ thống giải trí, trợ lý ảo và các tính năng hỗ trợ lái thông minh cũng được tích hợp ngày càng phổ biến.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus amet, corporis corrupti quod illum id autem assumenda nostrum quo, odio libero dolorum. Expedita, enim non voluptatibus qui veritatis iste ad? Voluptates natus dolor, minus culpa magnam! Iusto blanditiis beatae laudantium.</p>
+                    <p>Bên cạnh đó, yếu tố thẩm mỹ cũng được chú trọng với các đường nét hiện đại, không gian nội thất rộng rãi và tiện nghi. Người dùng không chỉ sở hữu một phương tiện đi lại, mà còn là một phần phong cách sống mới.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolor nemo optio facere impedit fugiat obcaecati blanditiis tempora inventore sapiente beatae aspernatur vitae fuga totam possimus eveniet, praesentium maiores! Dolorum illum voluptates ipsum aspernatur explicabo numquam, aliquid a amet, deleniti eos suscipit totam laudantium excepturi voluptatum fugiat eum nesciunt minus iste, expedita provident temporibus, alias possimus veritatis aut fugit? Eaque.</p>
+                    <p>Chuyển đổi sang xe điện không còn là xu hướng mà đã trở thành lựa chọn thiết thực cho cuộc sống xanh và tiện lợi hơn. Các chính sách hỗ trợ từ nhà nước và cơ sở hạ tầng trạm sạc ngày càng hoàn thiện sẽ thúc đẩy xu hướng này mạnh mẽ hơn trong tương lai.</p>
 
-                <ul class="social-icons">
-                    <li>Share this:</li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                </ul>
-              </article>
+                    <ul class="social-icons">
+                        <li>Chia sẻ:</li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                </article>
             </section>
 
-            <br>
-            <br>
-            <br>
-            
+            <br><br><br>
+
             <section class="tabs-content">
                 <div class="row">
                     <div class="col-md-8">
-                        <h4>Comments</h4>
+                        <h4>Bình luận</h4>
                         <ul class="features-items">
                             <li>
                                 <div class="feature-item" style="margin-bottom:15px;">
                                     <div class="left-icon">
-                                        <img src="/static/images/features-first-icon.png" alt="First One">
+                                        <img src="/static/images/features-first-icon.png" alt="Người dùng 1">
                                     </div>
                                     <div class="right-content">
-                                        <h4>John Doe <small>27.07.2020 10:10</small></h4>
-                                        <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                                        <h4>Nguyễn Văn B <small>27.07.2020 10:10</small></h4>
+                                        <p><em>"Bài viết rất hay, cung cấp nhiều thông tin hữu ích về xe điện!"</em></p>
                                     </div>
                                 </div>
 
                                 <div class="tabs-content">
                                     <div class="feature-item" style="margin-bottom:15px;">
                                         <div class="left-icon">
-                                            <img src="/static/images/features-first-icon.png" alt="First One">
+                                            <img src="/static/images/features-first-icon.png" alt="Người dùng 2">
                                         </div>
                                         <div class="right-content">
-                                            <h4>John Doe <small>27.07.2020 11:10</small></h4>
-                                            <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                                            <h4>Lê Thị C <small>27.07.2020 11:10</small></h4>
+                                            <p><em>"Mình đang cân nhắc chuyển sang dùng xe điện, cảm ơn thông tin hữu ích."</em></p>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                             <li class="feature-item" style="margin-bottom:15px;">
                                 <div class="left-icon">
-                                    <img src="/static/images/features-first-icon.png" alt="second one">
+                                    <img src="/static/images/features-first-icon.png" alt="Người dùng 3">
                                 </div>
                                 <div class="right-content">
-                                    <h4>John Doe <small>27.07.2020 12:10</small></h4>
-                                    <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                                    <h4>Phạm Minh D <small>27.07.2020 12:10</small></h4>
+                                    <p><em>"Hi vọng sớm được trải nghiệm mẫu xe mới của VinCar!"</em></p>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
                     <div class="col-md-4">
-                        <h4>Leave a comment</h4>
-                
+                        <h4>Để lại bình luận</h4>
+
                         <div class="contact-form">
                             <form action="" method="post">
-                              <div class="row">
-                                <div class="col-lg-12">
-                                  <fieldset>
-                                    <input name="name" type="text" id="name" placeholder="Your Name*" required="">
-                                  </fieldset>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input name="name" type="text" id="name" placeholder="Họ và tên*" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email của bạn*" required="">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <textarea name="message" rows="6" id="message" placeholder="Nội dung bình luận" required=""></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="main-button">Gửi bình luận</button>
+                                        </fieldset>
+                                    </div>
                                 </div>
-                                <div class="col-lg-12">
-                                  <fieldset>
-                                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                  <fieldset>
-                                    <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
-                                  </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                  <fieldset>
-                                    <button type="submit" id="form-submit" class="main-button">Submit</button>
-                                  </fieldset>
-                                </div>
-                              </div>
                             </form>
                         </div>
                     </div>

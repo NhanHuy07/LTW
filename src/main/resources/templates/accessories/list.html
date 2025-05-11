@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common-fragments :: head}"></head>
+<body>
+    <div th:replace="~{fragments/common-fragments :: header}"></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2 th:if="${category}" th:text="${category}">Phụ tùng xe hơi</h2>
+                        <h2 th:unless="${category}">Phụ tùng xe hơi</h2>
+                        <img src="/static/images/line-dec.png" alt="">
+                        <p>Các phụ tùng, thiết bị chính hãng được nhập khẩu và phân phối độc quyền.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danh mục phụ tùng -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="categories d-flex justify-content-center">
+                        <a href="/accessories" class="btn btn-outline-primary mx-2">Tất cả</a>
+                        <a href="/accessories/category/Lốp xe" class="btn btn-outline-primary mx-2">Lốp xe</a>
+                        <a href="/accessories/category/Dầu nhớt" class="btn btn-outline-primary mx-2">Dầu nhớt</a>
+                        <a href="/accessories/category/Bộ lọc" class="btn btn-outline-primary mx-2">Bộ lọc</a>
+                        <a href="/accessories/category/Ắc quy" class="btn btn-outline-primary mx-2">Ắc quy</a>
+                        <a href="/accessories/category/Đèn xe" class="btn btn-outline-primary mx-2">Đèn xe</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danh sách phụ tùng -->
+            <div class="row">
+                <div th:each="accessory : ${accessories}" class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 accessory-item shadow-sm">
+                        <div class="image-thumb">
+                            <img th:if="${accessory.image}" th:src="@{'/static/images/' + ${accessory.image}}" class="card-img-top" alt="Phụ tùng">
+                            <img th:unless="${accessory.image}" src="/static/images/accessory-default.jpg" class="card-img-top" alt="Phụ tùng">
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge badge-primary" th:text="${accessory.category}">Phụ tùng</span>
+                                <span class="badge badge-success" th:if="${accessory.stock > 0}" th:text="'Còn ' + ${accessory.stock} + ' sản phẩm'">Còn hàng</span>
+                                <span class="badge badge-danger" th:if="${accessory.stock == 0}">Hết hàng</span>
+                            </div>
+                            <h5 class="card-title mt-3" th:text="${accessory.name}">Tên phụ tùng</h5>
+                            <p class="card-text price-text text-danger" th:text="${#numbers.formatDecimal(accessory.price, 0, 'COMMA', 0, 'POINT')} + ' VND'">Giá sản phẩm</p>
+                            <p class="card-text description" th:text="${accessory.description}">Mô tả sản phẩm</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <div class="d-flex justify-content-between">
+                                <a th:href="@{'/accessories/' + ${accessory.id}}" class="btn btn-outline-primary">Xem chi tiết</a>
+                                <form th:if="${accessory.stock > 0}" th:action="@{'/cart/add/' + ${accessory.id}}" method="post">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thông báo không có phụ tùng -->
+            <div class="row" th:if="${#lists.isEmpty(accessories)}">
+                <div class="col-12 text-center">
+                    <div class="alert alert-info">
+                        <h4>Không tìm thấy phụ tùng nào</h4>
+                        <p>Vui lòng thử lại sau hoặc chọn danh mục khác.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="~{fragments/common-fragments :: footer}"></div>
+    <div th:replace="~{fragments/common-fragments :: scripts}"></div>
+</body>
+</html>

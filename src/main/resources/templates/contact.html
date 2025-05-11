@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
   <head>
 
@@ -38,58 +40,19 @@
     
     
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo"><em>v i n c a r</em></a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.html">TRANG CHỦ</a></li>
-                            <li><a href="cars.html">XE</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">tHÊM</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="blog.html">Tin tức</a>
-                                    <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
-                                    <a class="dropdown-item" href="terms.html">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.html" class="active">liên hệ</a></li> 
-							<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
-                                <div class="dropdown-menu">
-                                    <!-- Kích hoạt iframe đăng nhập -->
-                                    <a class="dropdown-item" href="login.html">Đăng nhập</a>
-                                    <!-- Kích hoạt iframe đăng ký -->
-                                    <a class="dropdown-item" href="register.html">Đăng ký</a>
-                                </div>
-                            </li>
-                        </ul>        
-                        <a class="menu-trigger">
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div th:replace="~{fragments/common-fragments :: header}"></div>
     <!-- ***** Header Area End ***** -->
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url(/static/images/banner-image-1-1920x500.jpg)">
+    <section class="section section-bg" id="call-to-action" style="background-image: url(static/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Feel free to <em>Contact Us</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>Liên hệ với<em> chúng tôi</em></h2>
+                        <p>Hãy thoải mái gửi tin nhắn, chúng tôi sẽ phản hồi sớm nhất!</p>
+
                     </div>
                 </div>
             </div>
@@ -102,9 +65,9 @@
             <div class="row text-center">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>contact <em> info</em></h2>
-                        <img src="/static/images/line-dec.png" alt="waves">
-                        
+                        <h2>Thông tin <em>liên hệ</em></h2>
+                        <img src="static/images/line-dec.png" alt="waves">
+
                     </div>
                 </div>
 
@@ -113,7 +76,7 @@
                         <i class="fa fa-phone"></i>
                     </div>
 
-                    <h5><a href="#">+1 333 4040 5566</a></h5>
+                    <h5><a href="#">+0337 690 341</a></h5> <!-- Đổi số điện thoại nếu cần -->
 
                     <br>
                 </div>
@@ -123,7 +86,7 @@
                         <i class="fa fa-envelope"></i>
                     </div>
 
-                    <h5><a href="#">contact@company.com</a></h5>
+                    <h5><a href="#">group14@carcompany.com</a></h5>
 
                     <br>
                 </div>
@@ -133,7 +96,7 @@
                         <i class="fa fa-map-marker"></i>
                     </div>
 
-                    <h5>212 Barrington Court New York</h5>
+                    <h5>PTIT HÀ ĐÔNG</h5>
 
                     <br>
                 </div>
@@ -141,46 +104,46 @@
         </div>
     </section>
     <!-- ***** Features Item End ***** -->
-   
+
     <!-- ***** Contact Us Area Starts ***** -->
     <section class="section" id="contact-us" style="margin-top: 0">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div id="map">
-                      <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14901.16966104331!2d105.77608538477054!3d20.980912420890213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1745137046779!5m2!1svi!2s" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="contact-form section-bg" style="background-image: url(/static/images/contact-1-720x480.jpg)">
+                    <div class="contact-form section-bg" style="background-image: url(static/images/contact-1-720x480.jpg)">
                         <form id="contact" action="" method="post">
-                          <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                              <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required="">
-                              </fieldset>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <fieldset>
+                                        <input name="name" type="text" id="name" placeholder="Họ và tên*" required="">
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <fieldset>
+                                        <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email của bạn*" required="">
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <fieldset>
+                                        <input name="subject" type="text" id="subject" placeholder="Tiêu đề">
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <textarea name="message" rows="6" id="message" placeholder="Nội dung tin nhắn" required=""></textarea>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <button type="submit" id="form-submit" class="main-button">Gửi tin nhắn</button>
+                                    </fieldset>
+                                </div>
                             </div>
-                            <div class="col-md-6 col-sm-12">
-                              <fieldset>
-                                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                              <fieldset>
-                                <input name="subject" type="text" id="subject" placeholder="Subject">
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <button type="submit" id="form-submit" class="main-button">Send Message</button>
-                              </fieldset>
-                            </div>
-                          </div>
                         </form>
                     </div>
                 </div>

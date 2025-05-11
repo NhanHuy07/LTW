@@ -1,8 +1,8 @@
 package com.example.demo.constants;
 
 public class SuccessMessage {
-    public static final String CAR_EDITED = "Sản phẩm đã được chỉnh sửa thành công!";
-    public static final String CAR_ADDED = "Sản phẩm đã được thêm thành công!";
+    public static final String CAR_EDITED = "Xe đã được chỉnh sửa thành công!";
+    public static final String CAR_ADDED = "Xe đã được thêm thành công!";
     public static final String PASSWORD_CODE_SEND = "Hãy kiểm tra email của bạn để đặt lại mật khẩu";
     public static final String PASSWORD_CHANGED = "Mật khẩu đã được thay đổi thành công!";
     public static final String ACTIVATION_CODE_SEND = "Mã kích hoạt đã được gửi tới email của bạn";

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;600;700;900&display=swap&subset=vietnamese" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Điều khoản-Chính sách  | VinCar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<style>
+    .accordion-body strong {
+      font-weight: 700;
+      color: #212121; /* Tùy chọn nếu bạn muốn nó đậm màu hơn */
+    }
+</style>
+<!-- ***** Preloader Start ***** -->
+<div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+
+<!-- ***** Header Area Start ***** -->
+<div th:replace="~{fragments/common-fragments :: header}"></div>
+<!-- ***** Header Area End ***** -->
+
+<section class="section section-bg" id="call-to-action" style="background-image: url(static/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <br>
+                    <br>
+                    <h2><em>Điều khoản</em> & <em> Chính sách</em></h2>
+                    <p>Tổng hợp các thông tin về điều khoản và chính sách của các dịch vụ của VinCar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ***** Our Classes Start ***** -->
+<section class="section" id="our-classes">
+    <div class="container">
+        <br><br><br>
+
+        <div class="accordion" id="vincarCommunityAccordion">
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="headingStandards">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStandards" aria-expanded="false" aria-controls="collapseStandards">
+                        1. MIỄN TRỪ TRÁCH NHIỆM
+                    </button>
+                </h4>
+                <div id="collapseStandards" class="accordion-collapse collapse" aria-labelledby="headingStandards" data-bs-parent="#vincarCommunityAccordion">
+                    <div class="accordion-body">
+                        <div style="padding: 15px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9; font-size: 15px;">
+                            <ol style="color: rgb(91, 87, 87);">
+                                <li>Chúng tôi luôn nỗ lực đảm bảo duy trì hệ thống kỹ thuật của VinCarauto.com trong tình trạng chạy ổn định, an toàn và tuân thủ quy định pháp luật liên quan đến việc cung cứng các dịch vụ thương mại điện tử và thực hiện các giao dịch trực tuyến.
+                                    Tuy nhiên, VinCarauto.com không chịu trách nhiệm trước những thiệt hại, tổn thất của Khách Hàng phát sinh trong quá trình giao dịch trên VinCCarauto.com, trừ phi những thiệt hại, tổn thất này là do lỗi cố ý của chúng tôi.  </li>
+                                <br>
+                                <li>VinCarauto.com có thể cung cấp các liên kết hoặc tham chiếu tới các trang khác trên Internet được vận hành bởi bên thứ ba, chỉ nhằm giúp tạo sự thuận tiện cho Khách Hàng.
+                                    VinCarauto.com không chịu trách nhiệm với nội dung của các trang khác và vì vậy không chịu trách nhiệm pháp lý cho bất kỳ thiệt hại hay thương tổn nào phát sinh từ hoặc liên quan tới những nội dung của trang được liên kết bởi bất cứ hình thức nào.</li>
+                                <br>
+                                <li>Trường hợp phát sinh thắc mắc nào liên quan đến dịch vụ của chúng tôi, Quý Khách vui lòng liên hệ trực tiếp với VinCarauto.com để được giải đáp</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="headingDC">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDC" aria-expanded="false" aria-controls="collapseDC">
+                        2. ĐIỀU KHOẢN ĐẶT CỌC
+                    </button>
+                </h4>
+                <div id="collapseDC" class="accordion-collapse collapse" aria-labelledby="headingDC" data-bs-parent="#vincarCommunityAccordion">
+                    <div class="accordion-body">
+                        <div style="padding: 15px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9; font-size: 15px;">
+                            <h5 style="font-weight: bold;text-align: center;">ĐIỀU KIỆN VÀ ĐIỀU KHOẢN CHUNG<br><br> ĐẶT CỌC MUA BÁN XE VINCAR</h5>
+                            <br>
+                            <p><em>Vui lòng đọc kỹ các điều khoản và điều kiện chung này khi đặt cọc mua xe VinCar (<strong>“Điều Khoản Đặt Cọc”</strong>) trước khi quyết định đặt mua các sản phẩm VinCar. Bằng việc xác nhận đồng ý với nội dung Điều Khoản Đặt Cọc và hoàn tất việc chuyển Tiền Đặt Cọc, <strong>Khách Hàng được hiểu rằng đã đọc, hiểu và đồng ý với tất cả các điều khoản và điều kiện</strong> của Điều Khoản Đặt Cọc.</em></p>
+                            <br>
+                            <ol style="color: rgb(91, 87, 87);">
+                                <li>1. Khách Hàng đồng ý đặt cọc cho Công ty TNHH Kinh Doanh Thương Mại và Dịch Vụ VinCar (<strong>“VinCar Trading”</strong>) hoặc với các nhà phân phối/đại lý chính hãng của VinCar (<strong>“Bên Bán”</strong>) một số tiền (<strong>“Tiền Đặt Cọc”</strong>) bằng đồng Việt Nam để đảm bảo cho việc giao kết và việc mua bán xe VinCar với thông tin về sản phẩm được Khách Hàng lựa chọn theo Đơn Đặt Hàng.</li>
+                                <br>
+                                <li>2. Việc Khách Hàng thực hiện đặt hàng (<strong>“Đơn Đặt Hàng”</strong>), chấp thuận Điều Khoản Đặt Cọc này và thanh toán Tiền Đặt Cọc (như được định nghĩa dưới đây) cùng với việc Bên Bán xác nhận Đơn Đặt Hàng tạo thành thỏa thuận đặt cọc có hiệu lực pháp lý ràng buộc Khách Hàng và VinCar Trading (<strong>“Thỏa Thuận Đặt Cọc”</strong>). Với các Đơn Đặt Hàng trên website , Bên Bán sẽ gửi thông báo xác nhận Đơn Hàng do Bên Bán gửi tới địa chỉ email của Khách Hàng theo thông tin đã đăng ký trên website. Khách Hàng cam kết đồng ý và tuân thủ đầy đủ chính sách bán hàng của VinCar Trading được công bố tùy từng thời điểm.</li>
+                                <br>
+                                <li>3. Thời hạn đặt cọc (<strong>“Thời Hạn Đặt Cọc”</strong>) bắt đầu từ thời điểm Khách Hàng thanh toán đủ Tiền Đặt Cọc cho Bên Bán đến (i) ngày Các Bên hoàn tất thủ tục ký kết hợp đồng mua bán hoặc (ii) ngày Các Bên ký Biên bản bàn giao Xe và Pin hoặc (iii) ngày hết thời hạn hoàn thành thủ tục ký hợp đồng mua bán hoặc nhận bàn giao xe (ký Biên bản bàn giao Xe và Pin) theo thông báo của VinCar cho Khách Hàng, tùy thời điểm nào đến trước. Trong Thời Hạn Đặt Cọc, Tiền Đặt Cọc không phát sinh lãi.</li>
+                                <br>
+                                <li>4. Tiền Đặt Cọc có thể được thanh toán bằng tiền mặt, thẻ tín dụng, ATM nội địa hoặc chuyển khoản ngân hàng .</li>
+                                <br>
+                                <li>5. Thỏa Thuận Đặt Cọc có hiệu lực ràng buộc các bên kể từ thời điểm ký kết Thỏa Thuận Đặt Cọc và chấm dứt khi:<br>
+                                    <br>
+                                    <ul>
+                                        <li style="margin-left: 20px;"> 5.1. Hợp đồng mua bán được ký kết hoặc Các Bên ký Biên bản bàn giao Xe và Pin. Khách Hàng đồng ý rằng Tiền Đặt Cọc được chuyển đổi thành khoản thanh toán đợt 1 theo hợp đồng mua bán hoặc Đơn Đặt Hàng.</li>
+                                        <br>
+                                        <li style="margin-left: 20px;">5.2. Nếu Khách Hàng không ký kết hợp đồng mua bán hoặc Biên bản bàn giao Xe và Pin trong thời gian và tại địa điểm theo thông báo của Bên Bán, thì Bên Bán được quyền chấm dứt Thỏa Thuận Đặt Cọc này và Tiền Đặt Cọc thuộc về VinCar, đồng thời VinCar có toàn quyết định việc xử lý Tiền Đặt Cọc.</li>
+                                        <br>
+                                        <li style="margin-left: 20px;">5.3. Nếu Bên Bán không ký kết Hợp Đồng Mua Bán hoặc không bàn giao xe cho Khách Hàng thì Tiền Đặt Cọc sẽ được hoàn trả cho Khách Hàng, trừ trường hợp do lỗi của Khách Hàng.</li>
+                                        <br>
+                                        <li style="margin-left: 20px;">5.4. Các trường hợp khác theo thỏa thuận của hai bên hoặc theo quy định của pháp luật.</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>6. Khách Hàng không được (i) thay đổi Đơn Đặt Hàng (ii) chuyển nhượng/chuyển giao các quyền và nghĩa vụ theo Thỏa Thuận Đặt Cọc cho bên thứ ba trừ khi có sự đồng ý của Bên Bán.</li>
+                                <br>
+                                <li>7. Khách Hàng đồng ý rằng Bên Bán có quyền chuyển giao quyền và nghĩa vụ của mình theo Thỏa Thuận Đặt Cọc cho bất kỳ bên thứ ba nào (bao gồm nhưng không giới hạn các đại lý/nhà phân phối chính thức của Bên Bán) với điều kiện không làm ảnh hưởng tới quyền lợi của Khách Hàng khi gửi cho Khách Hàng thông báo bằng văn bản ít nhất 05 (năm) ngày làm việc trước ngày chuyển giao (bao gồm cả các hình thức thông báo qua ứng dụng, tin nhắn SMS). Trong vòng 05 (năm) ngày làm việc kể từ ngày thông báo mà Bên Bán không nhận được ý kiến phản hồi bằng văn bản của Khách Hàng thì được hiểu là Khách Hàng đã chấp thuận việc chuyển giao nêu trên.</li>
+                                <br>
+                                <li>8. Để đảm bảo trải nghiệm sản phẩm và dịch vụ của Bên Bán và các khâu vận hành dịch vụ có liên quan được toàn vẹn, bằng cách ký Thỏa Thuận Đặt Cọc hoặc Đơn Đặt Hàng hoặc Hợp Đồng Mua Bán hoặc chính Điều Khoản Đặt Cọc này, Khách Hàng xác nhận rằng Khách Hàng đã đọc, hiểu và đồng ý cho phép Bên Bán xử lý dữ liệu cá nhân của mình với cách thức được mô tả chi tiết tại Chính Sách Quyền Riêng Tư hay Chính Sách Bảo Vệ Dữ Liệu Cá Nhân được công bố <a href="terms.html" target="_blank"> Tại đây</a>, được điều chỉnh vào từng thời điểm để phù hợp với quy định pháp luật liên quan đến bảo vệ dữ liệu cá nhân hiện hành.</li>
+                                <br>
+                                <li>9. Ngoại trừ các biện pháp xử lý Tiền Đặt Cọc được quy định trong Điều 5, không Bên nào phải thanh toán thêm bất kỳ khoản tiền phạt, bồi thường nào cho Bên còn lại hoặc phải chịu trách nhiệm theo bất kỳ hình thức nào khác.</li>
+                                <br>
+                                <li>10. Thỏa Thuận Đặt Cọc này được điều chỉnh theo pháp luật Việt Nam. Bất kỳ tranh chấp nào liên quan đến Thỏa Thuận Đặt Cọc này trước tiên sẽ được Các Bên giải quyết thông qua thương lượng. Nếu Các Bên không đạt được thương lượng thì tranh chấp đó sẽ được giải quyết tại Tòa án có thẩm quyền của Việt Nam.</li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="headingdoicha">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedoicha" aria-expanded="false" aria-controls="collapsedoicha">
+                        3. CHÍNH SÁCH ĐỔI TRẢ
+                    </button>
+                </h4>
+                <div id="collapsedoicha" class="accordion-collapse collapse" aria-labelledby="headingdoicha" data-bs-parent="#vincarCommunityAccordion">
+                    <div class="accordion-body">
+                        <div style="padding: 15px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9; font-size: 15px;">
+                            <ol style="color: rgb(91, 87, 87);">
+                                <li>Sản Phẩm không áp dụng đổi, trả.</li>
+                                <br>
+                                <li>Sản Phẩm được bảo hành tại hệ thống Showroom, Xưởng dịch vụ của Đại lý phân phối chính hãng VinCar theo chính sách bảo hành.</li>
+                                <br>
+                                <li>+ Riêng với Chương trình triệu hồi được áp dụng để xử lý miễn phí các lỗi liên quan đến chất lượng và liên quan đến an toàn cho các xe đang lưu hành trên thị trường theo quy định pháp luật.<br> Chương trình triệu hồi sửa chữa được áp dụng cho cả những xe đã hết thời hạn bảo hành.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="headingvanchuyen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsevanchuyen" aria-expanded="false" aria-controls="collapsevanchuyen">
+                        4. CHÍNH SÁCH VẬN CHUYỂN
+                    </button>
+                </h4>
+                <div id="collapsevanchuyen" class="accordion-collapse collapse" aria-labelledby="headingvanchuyen" data-bs-parent="#vincarCommunityAccordion">
+                    <div class="accordion-body">
+                        <div style="padding: 15px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9; font-size: 15px;">
+                            <ol style="color: rgb(91, 87, 87);">
+                                <li>Sản Phẩm được phân phối thông qua hệ thống Showroom của Đại lý phân phối chính hãng VinCar trên toàn quốc. Chúng tôi không áp dụng chính sách vận chuyển trực tiếp tới Khách Hàng mua hàng qua vincarauto.com.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="headingbaomat">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsebaomat" aria-expanded="false" aria-controls="collapsebaomat">
+                        5. CHÍNH SÁCH BẢO MẬT THANH TOÁN
+                    </button>
+                </h4>
+                <div id="collapsebaomat" class="accordion-collapse collapse" aria-labelledby="headingbaomat" data-bs-parent="#vincarCommunityAccordion">
+                    <div class="accordion-body">
+                        <div style="padding: 15px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9; font-size: 15px;">
+                            <ol style="color: rgb(91, 87, 87);">
+                                <li><strong>1. Cam kết bảo mật</strong></li>
+                                <br>
+                                <li>1.1. Hệ thống thanh toán trực tuyến của Vincarauto.com được cung cấp bởi các đối tác cung cấp dịch vụ trung gian thanh toán (bao gồm nhưng không giới hạn ở Cổng thanh toán điện tử và dịch vụ Ví điện tử) đã được cấp phép hoạt động hợp pháp tại Việt Nam (“Đối Tác Thanh Toán”). Theo đó, các tiêu chuẩn bảo mật trong việc thanh toán trực tuyến đảm bảo tuân thủ theo các tiêu chuẩn bảo mật của Đối Tác Thanh Toán.</li>
+                                <br>
+                                <li>1.2. Thành Viên không đưa thông tin chi tiết về việc thanh toán, thông tin tài khoản/thẻ, mật khẩu và các thông tin xác thực khác của Giao Dịch với bất kỳ bên thứ ba nào bằng bất kỳ hình thức liên lạc nào. Vincarauto.com không chịu trách nhiệm về những thiệt hại hay rủi ro Thành Viên có thể gánh chịu trong việc để lộ các thông tin thanh toán.</li>
+                                <br>
+                                <li>1.3. Thành Viên tuyệt đối không được trực tiếp hay gián tiếp sử dụng, phát tán bất kỳ chương trình, mã, công cụ hay hình thức nào khác để xâm nhập, can thiệp trái phép vào hệ thống hay làm thay đổi cấu trúc dữ liệu của Vincarauto.com và các Thành Viên khác. Mọi vi phạm sẽ bị xử lý theo Quy Chế này và quy định của pháp luật.</li>
+                                <br>
+                                <li><strong>2. Quy định bảo mật </strong></li>
+                                <br>
+                                <li>– Chính sách giao dịch thanh toán bằng thẻ quốc tế và thẻ nội địa (internet banking) đảm bảo tuân thủ các tiêu chuẩn bảo mật của các Đối Tác Cổng Thanh Toán gồm:</li>
+                                <br>
+                                <ul>
+                                    <li style="margin-left: 20px;">	● Thông tin tài chính của Khách hàng sẽ được bảo vệ trong suốt quá trình giao dịch bằng giao thức TLS. Giao thức TLS sẽ mã hóa thông tin bạn cung cấp trong suốt quá trình giao dịch.</li>
+                                    <li style="margin-left: 20px;">	● Chứng nhận tiêu chuẩn bảo mật dữ liệu thông tin thanh toán (PCI DSS) do Trustwave cung cấp. PCI DSS là tiêu chuẩn bảo mật quốc tế có giá trị toàn cầu do Hội đồng tiêu chuẩn bảo mật SSC thiết lập (Security Standards Council). Với việc tuân thủ PCI DSS, Đối Tác Cổng Thanh Toán đã  tham gia các chương trình bảo vệ như Verified by Visa của VISA, MasterCard SecureCode của MasterCard, J/Secure của JCB, Safe Key của American Express.</li>
+                                    <li style="margin-left: 20px;">	● Các nguyên tắc và quy định bảo mật thông tin trong ngành tài chính ngân hàng theo quy định của Ngân hàng nhà nước Việt Nam.</li>
+                                </ul>
+                                <br>
+                                <li>– Chính sách bảo mật giao dịch trong thanh toán của Vincarauto.com áp dụng với Khách hàng:</li>
+                                <br>
+                                <ul>
+                                    <li style="margin-left: 20px;">	● Vincarauto.com không trực tiếp lưu trữ thông tin thẻ khách hàng. Việc bảo mật thông tin thẻ thanh toán Khách hàng được thực hiện bởi Đối Tác Cổng Thanh Toán đã được cấp phép.</li>
+                                    <li style="margin-left: 20px;">	● Đối với thẻ quốc tế: thông tin thẻ thanh toán của Khách hàng mà có khả năng sử dụng để xác lập giao dịch không được lưu trên hệ thống của Vincarauto.com. Đối Tác Cổng Thanh Toán sẽ lưu trữ và bảo mật.</li>
+                                    <li style="margin-left: 20px;">	● Đối với thẻ nội địa (internet banking), Vincarauto.com chỉ lưu trữ mã đơn hàng, mã giao dịch và tên ngân hàng.</li>
+                                </ul>
+                                <br>
+                                <li>Vincarauto.com cam kết đảm bảo thực hiện nghiêm túc các biện pháp bảo mật cần thiết cho mọi hoạt động thanh toán thực hiện trên trang thương mại điện tử Vincarauto.com.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="headingdkdk">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedkdk" aria-expanded="false" aria-controls="collapsedkdk">
+                        6. ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
+                    </button>
+                </h4>
+                <div id="collapsedkdk" class="accordion-collapse collapse" aria-labelledby="headingdkdk" data-bs-parent="#vincarCommunityAccordion">
+                    <div class="accordion-body">
+                        <div style="padding: 15px; border: 1px solid #ddd; border-radius: 6px; background-color: #f9f9f9; font-size: 15px;">
+                            <ol style="color: rgb(91, 87, 87);">
+                                <li> <strong>1.1.    Phạm vi áp dụng</strong></li>
+                                <br>
+                                <li>Điều khoản và Điều kiện sẽ được áp dụng cho khách hàng đặt cọc mua Sản Phẩm trên Website. Khách hàng tham gia giao dịch trên Webiste bao gồm:</li>
+                                <br>
+                                <li>(i)    Cá nhân từ đủ 18 tuổi trở lên, có năng lực hành vi dân sự phù hợp để thực hiện các giao dịch trên Vincarauto.com.</li>
+                                <br>
+                                <li>(ii)    Tổ chức được thành lập và hoạt động hợp pháp theo quy định của pháp luật Việt Nam.</li>
+                                <br>
+                                <li> <strong>1.2.    Tài khoản Vincarauto.com</strong></li>
+                                <br>
+                                <li>Khi đăng ký tài khoản, Quý khách phải đáp ứng các điều kiện nêu tại mục 1.1 trên đây. Quý khách có thể chọn tạo một tài khoản và cung cấp thông tin nhất định, bao gồm địa chỉ email hợp lệ và mật khẩu.
+                                    Quý khách sẽ phải đăng ký tài khoản với thông tin xác thực về bản thân và phải cập nhật nếu có bất kỳ thay đổi nào.
+                                    Mỗi người truy cập phải có trách nhiệm với mật khẩu, tài khoản và hoạt động của mình trên Website. Hơn nữa, Quý khách phải thông báo cho Chúng tôi biết khi tài khoản bị truy cập trái phép.
+                                    Chúng tôi không chịu bất kỳ trách nhiệm nào, dù trực tiếp hay gián tiếp, đối với những thiệt hại hoặc mất mát gây ra do khách hàng không tuân thủ quy định, hướng dẫn của chúng tôi.
+                                    Bằng cách cung cấp thông tin của mình,
+                                    Quý khách đồng ý cho Chúng tôi liên hệ với Quý khách về mối quan tâm của Quý khách đối với chúng tôi hoặc qua email,
+                                    điện thoại hoặc thông qua bất kỳ thông tin liên hệ nào khác mà Quý khách đã chọn để cung cấp.</li>
+                                <br>
+                                <li>
+                                    Vincarauto.com bảo lưu quyền từ chối yêu cầu mở tài khoản hoặc các truy cập của Quý khách tới Website hoặc dịch vụ với bất kỳ lý do nào.
+                                </li>
+                                <br>
+                                <li>Quý khách có thể yêu cầu xóa tài khoản bằng cách thông báo đến Chúng tôi qua email/ hotline hỗ trợ.
+                                    Bất kể việc xóa tài khoản như vậy, Quý khách vẫn phải chịu trách nhiệm và nghĩa vụ đối với bất kỳ giao dịch nào chưa hoàn thành (phát sinh trước hoặc sau khi tài khoản bị xóa).
+                                    Khi đó, theo điều khoản sử dụng, Quý khách phải liên hệ với Chúng tôi sau khi hoàn tất việc thực hiện và hoàn thành các giao dịch chưa hoàn tất.
+                                    Chúng tôi không có trách nhiệm và không chịu trách nhiệm đối với bất kỳ tổn thất nào phát sinh từ bất kỳ hành động nào của khách hàng liên quan đến mục này.</li>
+                                <br>
+                                <li><strong>2.    Giao dịch trên Vincarauto.com</strong></li>
+                                <li>
+                                    Chúng tôi có quyền hủy đơn hàng đã được xác nhận trong một số trường hợp sau đây:
+                                </li>
+                                <br>
+                                <li style="margin-left: 20px;">	● Có những sơ hở, lỗi hệ thống, những sai sót, nhầm lẫn dẫn đến sai lệch về thông tin Sản Phẩm (bao gồm nhưng không giới hạn về giá, đặc tính, chủng loại Sản Phẩm, các điều kiện, ưu đãi đi kèm theo Sản Phẩm) trong quá trình thực hiện giao dịch trên Website.</li>
+                                <li style="margin-left: 20px;">	● Khách hàng không đáp ứng điều kiện tham gia giao dịch và/hoặc cố tình cung cấp thông tin không chính xác trong quá trình thực hiện giao dịch.</li>
+                                <li style="margin-left: 20px;">	● Vi phạm các quy định của các chính sách ưu đãi hoặc chương trình khuyến mại.</li>
+                                <li style="margin-left: 20px;">	● Khi Chúng tôi không liên hệ được với Quý khách từ ba (03) lần trở lên trong vòng hai mươi tư (24) giờ kể từ thời điểm bắt đầu thanh toán cọc.</li>
+                                <br>
+                                <li><strong>3.    Điều khoản chung</strong></li>
+                                <br>
+                                <li>Chúng tôi bảo lưu quyền thay đổi, chỉnh sửa, tạm ngưng hoặc chấm dứt tất cả hoặc bất kỳ phần nào của Website hoặc bất kỳ dịch vụ nào mà Chúng tôi cung cấp vào bất cứ thời điểm nào.
+                                    Chúng tôi không chịu trách nhiệm đối với việc phát hành các dịch vụ hoặc tính năng của dịch vụ với phiên bản thử nghiệm mà các phiên bản này có thể không đúng hoặc không hoàn toàn giống với phiên bản cuối cùng.
+                                    Chúng tôi có toàn quyền giới hạn một số tính năng hoặc phạm vi truy cập của khách hàng đối với một phần hoặc toàn bộ Website mà không cần thông báo hay chịu trách nhiệm.</li>
+                                <br>
+                                <li>Điều khoản và Điều kiện này được điều chỉnh theo quy định của luật pháp Việt Nam.
+                                    Mọi tranh chấp, khác biệt, khiếu nại phát sinh từ/hoặc liên quan đến nội dung của Điều khoản và Điều kiện này sẽ được giải quyết thông qua thương lượng trên tinh thần thiện chí trong vòng ba mươi (30) ngày.
+                                    Nếu không thể giải quyết trong thời hạn ba mươi (30) ngày, tranh chấp, khiếu nại trên có thể được giải quyết tại cơ quan tòa án có thẩm quyền.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Our Classes End ***** -->
+
+<!-- ***** Footer Start ***** -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="social">
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>
+                    Copyright © 2025 PTIT
+                </p>
+                <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="static/js/jquery-2.1.0.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="static/js/popper.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+
+<!-- Plugins -->
+<script src="static/js/scrollreveal.min.js"></script>
+<script src="static/js/waypoints.min.js"></script>
+<script src="static/js/jquery.counterup.min.js"></script>
+<script src="static/js/imgfix.min.js"></script>
+<script src="static/js/mixitup.js"></script>
+<script src="static/js/accordions.js"></script>
+
+<!-- Global Init -->
+<script src="static/js/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html
+        lang="vi"
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Quản lý xe - Admin VinCar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;600;700;900&display=swap&subset=vietnamese" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+<div th:replace="~{fragments/common-fragments :: header}"></div>
+<div class="bg-light">
+    <div class="py-5">
+        <div class="container py-5 bg-white shadow-sm card-height">
+            <div class="row mx-3">
+                <div class="col-md-9 mb-5">
+                    <th:block th:replace="fragments/common-fragments :: info-title
+                                          (text='Thêm phụ tùng mới', icon='fas fa-edit mr-2')"/>
+                    <form method="post" th:action="@{/admin/add/accessory}" enctype="multipart/form-data">
+                        <div class="form row">
+                            <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                title='Tên phụ tùng',
+                                name='name',
+                                placeholder='Nhập tên phụ tùng',
+                                value=(${accessory} ? ${accessory.name} : ''),
+                                error=(${nameError})
+                            )"/>
+                            <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                title='Mô tả',
+                                name='description',
+                                placeholder='Nhập mô tả',
+                                value=(${accessory} ? ${accessory.description} : ''),
+                                error=(${descriptionError})
+                            )"/>
+                        </div>
+                        <div class="form row mt-3">
+                            <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                    title='Số lượng còn lại',
+                                    name='stock',
+                                    placeholder='Nhập số lượng còn lại',
+                                    value=(${accessory} ? ${accessory.stock} : ''),
+                                    error=(${stockError})
+                            )"/>
+                            <th:block th:replace="fragments/account-fragments :: add-product-select(
+                                     title='Danh mục',
+                                     name='category',
+                                     options=(${ {'Lốp xe', 'Dầu nhớt', 'Bộ lọc', 'Ắc quy', 'Đèn xe'} }),,
+                                     error=(${categoryError})
+                            )"/>
+                        </div>
+                        <div class="form row mt-3">
+                            <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                    title='Giá',
+                                    name='price',
+                                    placeholder='Nhập giá',
+                                    value=(${accessory} ? ${accessory.price} : ''),
+                                    error=(${priceError})
+                            )"/>
+                        </div>
+                        <div class="form row mt-3">
+                            <div class="col" style="margin-top: 35px">
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                        <th:block th:replace="fragments/common-fragments :: icon-button(
+                            text='Thêm',
+                            buttonClassName='mt-3',
+                            icon='fas fa-plus-square mr-2'
+                        )"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{fragments/common-fragments :: footer}"></div>
+<div th:replace="~{fragments/common-fragments :: scripts}"></div>
+</body>
+</html>

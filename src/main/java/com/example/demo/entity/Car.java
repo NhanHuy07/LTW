@@ -52,6 +52,9 @@ public class Car {
     @Column(name = "filename")
     private String fileName;
 
+    @Column(name = "price")
+    private Long price;
+
     @ElementCollection
     @CollectionTable(
             name = "car_descriptions",

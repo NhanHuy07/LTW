@@ -1,6 +1,7 @@
 package com.example.demo.config;
 
 
+import com.example.demo.security.CustomAuthenticationSuccessHandler;
 import com.example.demo.security.UserDetailServiceImpl;
 import com.example.demo.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ public class WebSecurityConfig{
     private final UserServiceImpl userService;
     private final UserDetailServiceImpl userDetailService;
     private final PasswordEncoder passwordEncoder;
+    private final CustomAuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -43,13 +45,26 @@ public class WebSecurityConfig{
                                 "/cars/**",
                                 "/car/**",
                                 "/register/**",
-                                "/contact/**"
+                                "/contact/**",
+                                "/checkout/**",
+                                "/blog",
+                                "/blog-details",
+                                "/faq",
+                                "/terms",
+                                "/blog.html",
+                                "/blog-details.html",
+                                "/faq.html",
+                                "/terms.html",
+                                "/car-details",
+                                "/car-details.html",
+                                "/accessories/**"
                         ).permitAll()
+                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/", true)
+                        .successHandler(authenticationSuccessHandler)
                         .permitAll()
                 )
                 .logout(logout -> logout

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html xmlns:th="http://www.thymeleaf.org">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,8 +9,13 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;600;700;900&display=swap&subset=vietnamese" rel="stylesheet">
 
-    <title>Hỏi-Đáp | VinCar</title>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Câu hỏi thường gặp | VinCar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
 
@@ -18,154 +23,332 @@
 
     <link rel="stylesheet" href="/static/css/style.css">
 
-    </head>
-    
-    <body>
-    
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+<!-- ***** Preloader Start ***** -->
+<div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
         <span class="dot"></span>
         <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-      </div>
     </div>
-    <!-- ***** Preloader End ***** -->
-    
-    
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo"><em>v i n c a r</em></a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="cars.html">Xe</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Thêm</a>
-                              
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="blog.html">Tin tức</a>
-                                    <a class="dropdown-item" href="faq.html">Hỏi-Đáp</a>
-                                    <a class="dropdown-item" href="terms.html">Terms</a>
-                                </div>
-                            </li>
-                            <li><a href="contact.html">Liên hệ</a></li> 
-							<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
-                                <div class="dropdown-menu">
-                                    <!-- Kích hoạt iframe đăng nhập -->
-                                    <a class="dropdown-item" href="login.html">Đăng nhập</a>
-                                    <!-- Kích hoạt iframe đăng ký -->
-                                    <a class="dropdown-item" href="register.html">Đăng ký</a>
-                                </div>
-                            </li>
-                        </ul>        
-                        <a class="menu-trigger">
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
+</div>
+<!-- ***** Preloader End ***** -->
+
+
+<!-- ***** Header Area Start ***** -->
+<div th:replace="~{fragments/common-fragments :: header}"></div>
+<!-- ***** Header Area End ***** -->
+
+<section class="section section-bg" id="call-to-action" style="background-image: url(static/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <br><br>
+                    <h2>Các câu hỏi <em>thường gặp</em></h2>
+                    <p>Tổng hợp các thông tin về sản phẩm và dịch vụ của VinCar.</p>
                 </div>
             </div>
         </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    </div>
+</section>
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url(/static/images/banner-image-1-1920x500.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="cta-content">
-                        <br>
-                        <br>
-                        <h2>Read our <em>FAQ</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+<!-- ***** Our Classes Start ***** -->
+<section class="section" id="our-classes">
+    <div class="container">
+        <br><br>
+        <h3 class="mb-4">Chính sách bán hàng </h3>
+        <div class="accordion" id="faqAccordion1">
+
+            <!-- Câu hỏi 1 -->
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="headingStandards">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStandards" aria-expanded="false" aria-controls="collapseStandards">
+                        Tôi có được huỷ cọc xe không?
+                    </button>
+                </h4>
+                <div id="collapseStandards" class="accordion-collapse collapse" aria-labelledby="headingStandards" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol >
+                            <li>- Đối với đơn hàng đặt cọc trước: Quý khách được chuyển nhượng/chuyển giao, chấm dứt Thỏa thuận đặt cọc và rút lại Tiền Đặt Cọc theo quy trình và hướng dẫn của VinFast.</li>
+                            <li>- Đối với đơn hàng đặt cọc cam kết: Quý khách không được hoàn/hủy và được phép chuyển giao cọc.</li>
+                        </ol>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ***** Our Classes Start ***** -->
-    <section class="section" id="our-classes">
-        <div class="container">
-            <br>
-            <br>
-            <br>
-          
-            <section class="tabs-content">
-              <article>
-                <h4><i class="fa fa-question-circle"></i> Lorem ipsum dolor sit amet?</h4>
-                <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Vel aspernatur natus dignissimos eos quod, odio.</p>
-
-                <br>
-                    
-                <h4><i class="fa fa-question-circle"></i> Lorem ipsum dolor sit amet, consectetur?</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cupiditate ullam exercitationem molestiae illum? Nam magni, saepe sint maiores vitae!</p>
-
-                <br>
-                
-                <h4><i class="fa fa-question-circle"></i> Laudantium dolores vitae consequatur, magnam porro repellat excepturi rerum?</h4>
-                <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-
-                <br>
-                
-                <h4><i class="fa fa-question-circle"></i> Laudantium dolores vitae consequatur, magnam porro repellat excepturi rerum?</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi suscipit commodi impedit unde accusantium nam incidunt tenetur, libero maiores enim! Nisi ex odit, totam nihil doloribus. Nemo ut, eos consequatur libero aut quas dolorum ipsa, quidem, totam dicta id possimus dolores distinctio laboriosam doloribus voluptates tenetur consectetur inventore aliquid dolorem?</p>
-              </article>
-            </section>
-        </div>
-    </section>
-    <!-- ***** Our Classes End ***** -->
-
-    <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-					<div class="social">
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-youtube"></i></a>
+            <!-- Câu hỏi 2 -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Tôi muốn đặt mua xe ô tô trên website phải làm thế nào?
+                    </button>
+                </h3>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol>
+                            <li>Các bước đặt xe ô tô trực tuyến trên website vinfastauto.com, bao gồm:</li>
+                            <li>①: TRUY CẬP chuyên trang đặt cọc xe ô tô VinFast tại:<a th:href="@{/cars}"> Đây</a></li>
+                            <li>- LỰA CHỌN Phiên bản xe với hình ảnh 360 độ trực quan, lựa chọn phiên bản, màu sắc.</li>
+                            <li>②: HOÀN THIỆN thông tin đặt cọc xe.</li>
+                            <li>- CẬP NHẬT thông tin cá nhân/doanh nghiệp: ĐIỀN ĐẦY ĐỦ thông tin yêu cầu tại website.</li>
+                            <li>- LỰA CHỌN Showroom mua xe: Điền tên Showroom Quý khách muốn đặt cọc theo gợi ý tại hệ thống. Mục Nhân viên hỗ trợ, Khách hàng điền Mã của TVBH Khách hàng đang làm việc, hoặc có thể để trống.</li>
+                            <li>- Đọc, hiểu rõ và XÁC NHẬN các Điều khoản có trong Thỏa thuận đặt cọc. Điều kiện & Điều khoản của website VinFast.</li>
+                            <li>- Lựa chọn hình thức THANH TOÁN và làm theo hướng dẫn.</li>
+                            <li>③: HOÀN TẤT đặt cọc.</li>
+                        </ol>
                     </div>
-                    <p>
-                        Copyright © 2025 PTIT
-                        
-                    </p>
-					<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
                 </div>
             </div>
+            <!-- Thêm các câu hỏi khác tương tự -->
+            <!-- ... -->
         </div>
-    </footer>
+        <br>
 
-    <!-- jQuery -->
-    <script src="/static/js/jquery-2.1.0.min.js"></script>
+        <h3 class="mb-4">Chính sách hậu mãi</h3>
+        <div class="accordion" id="faqAccordion2">
 
-    <!-- Bootstrap -->
-    <script src="/static/js/popper.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+            <!-- Câu hỏi 1 -->
 
-    <!-- Plugins -->
-    <script src="/static/js/scrollreveal.min.js"></script>
-    <script src="/static/js/waypoints.min.js"></script>
-    <script src="/static/js/jquery.counterup.min.js"></script>
-    <script src="/static/js/imgfix.min.js"></script> 
-    <script src="/static/js/mixitup.js"></script> 
-    <script src="/static/js/accordions.js"></script>
-    
-    <!-- Global Init -->
-    <script src="/static/js/custom.js"></script>
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="heading3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Thời hạn bảo hành cho ô tô VinFast là bao lâu?
+                    </button>
+                </h4>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol >
+                            <li>-Tất cả các dòng xe ô tô VinFast bao gồm xe xăng và xe điện đều được áp dụng thời hạn bảo hành là 10 năm hoặc 200.000km tuỳ thuộc vào điều kiện nào đến trước
+                                - mức lâu nhất cho một mẫu xe phổ thông trên thị trường. Riêng với mẫu xe VinFast VF 5, VF 6,
+                                VinFast áp dụng mức thời hạn bào hành là 7 năm hoặc 160.000 km tùy điều kiện nào đến trước.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
 
-  </body>
+            <!-- Câu hỏi 2 -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="heading4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        Phạm vi bảo hành ô tô VinFast như thế nào?
+                    </button>
+                </h3>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol>
+                            <li>Bảo hành áp dụng cho các hư hỏng do lỗi phần mềm, lỗi chất lượng của linh kiện hoặc lỗi lắp ráp của VinFast với điều kiện sản phẩm được sử dụng và bảo dưỡng đúng cách,
+                                ngoại trừ các hạng mục không thuộc phạm vi bảo hành.</li>
+                            <br>
+                            <li>Phụ tùng thay thế trong bảo hành là những chi tiết, linh kiện chính hãng nhỏ nhất được VinFast cung cấp.</li>
+                            <br>
+                            <li>Bảo hành có hiệu lực trên toàn lãnh thổ Việt Nam, chỉ được áp dụng và thực hiện tại các Xưởng dịch vụ và Nhà phân phối ủy quyền của VinFast. </li>
+                            <br>
+                            <li>Công việc bảo hành được thực hiện miễn phí theo các điều khoản và điều kiện bảo hành. </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- Thêm các câu hỏi khác tương tự -->
+            <!-- ... -->
+        </div>
+        <br>
+
+        <h3 class="mb-4">Hệ thống trạm sạc</h3>
+        <div class="accordion" id="faqAccordion3">
+
+            <!-- Câu hỏi 1 -->
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="heading5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        Thời gian được phép dừng đỗ ở các trạm sạc của VinFast là bao lâu?
+                    </button>
+                </h4>
+                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol >
+                            <li>VinFast không quy định thời gian dừng đỗ xe tại các trạm sạc công cộng. Tuy nhiên, để xây dựng thói quen sử dụng trạm sạc văn minh, sau khi xe đã đầy pin với thời gian đỗ vượt quá 30 phút, Khách hàng chi trả phụ phí sạc quá giờ (1.000 đồng/phút).
+                                Không áp dụng với sạc pin Xe máy điện và sạc pin Ô tô điện tại trụ sạc 11kW. Vì thế, Khách hàng cần lưu ý để tránh thanh toán thêm các khoản phí không cần thiết.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Câu hỏi 2 -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="heading6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                        Thời hạn thanh toán chi phí sạc ô tô điện VinFast tại trạm như thế nào?
+                    </button>
+                </h3>
+                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol>
+                            <li>Khách hàng sử dụng dịch vụ tại trạm sạc VinFast có thể thanh toán trực tiếp tại các Showroom/Nhà phân phối của VinFast hoặc online trên ứng dụng VinFast với thời hạn thanh toán như sau:</li>
+                            <br>
+                            <li style="margin-left: 20px;">	● Khách hàng thanh toán trả sau toàn bộ phí thuê pin và phí sạc xe điện VinFast tại trạm công cộng theo từng tháng, muộn nhất vào ngày 15 của tháng tiếp theo.</li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- Thêm các câu hỏi khác tương tự -->
+            <!-- ... -->
+        </div>
+        <br>
+
+        <h3 class="mb-4">Sạc pin</h3>
+        <div class="accordion" id="faqAccordion4">
+
+            <!-- Câu hỏi 1 -->
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="heading7">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                        Tôi thanh toán phí thuê bao pin vào lúc nào?
+                    </button>
+                </h4>
+                <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol >
+                            <li>Chi phí thuê pin được thanh toán theo điều khoản của nội dung của hợp đồng thuê pin, theo đó với XMĐ phải thanh toán muộn nhất ngày 5 hàng tháng,
+                                Ô tô điện thanh toán muộn nhất vào ngày 14 hàng tháng cho chi phí cước tháng trước đó.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Câu hỏi 2 -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="heading8">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                        Hiện nay có những cách sạc nào cho ô tô điện VinFast?
+                    </button>
+                </h3>
+                <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol>
+                            <li>Các loại sạc xe điện VinFast bao gồm:</li>
+                            <li style="margin-left: 20px;">- Sạc di động 2.2kW.</li>
+                            <li style="margin-left: 20px;">- Sạc di động 3.5kW.</li>
+                            <li style="margin-left: 20px;">- Sạc treo tường 7.4kW.</li>
+                            <li style="margin-left: 20px;">- Sạc tại trạm với trụ sạc thường AC 11kW.</li>
+                            <li style="margin-left: 20px;">- Sạc tại trạm với trụ sạc nhanh DC 30kW.</li>
+                            <li style="margin-left: 20px;">- Sạc tại trạm với trụ sạc nhanh DC 60kW.</li>
+                            <li style="margin-left: 20px;">- Sạc tại trạm với trụ sạc nhanh DC 250kW.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- Thêm các câu hỏi khác tương tự -->
+            <!-- ... -->
+        </div>
+        <br>
+
+        <h3 class="mb-4">Thông tin sản phẩm</h3>
+        <div class="accordion" id="faqAccordion5">
+
+            <!-- Câu hỏi 1 -->
+
+            <div class="accordion-item">
+                <h4 class="accordion-header" id="heading9">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                        Mẫu xe điện nào của VinFast có quãng đường di chuyển tối đa dài nhất?
+                    </button>
+                </h4>
+                <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol >
+                            <li>Hiện tại, mẫu ô tô điện VinFast VF 9 đang là mẫu có khả năng di chuyển quãng đường dài nhất sau mỗi lần sạc đầy, cụ thể:</li>
+                            <br>
+                            <li style="margin-left: 20px;">● VinFast VF 9 Eco đi được tối đa 438km.</li>
+                            <li style="margin-left: 20px;">● VinFast VF 9 Plus đi được tối đa 423km.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Câu hỏi 2 -->
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="heading10">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                        Ô tô điện VinFast thuộc phân khúc nào?
+                    </button>
+                </h3>
+                <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <ol>
+                            <li>Hiện VinFast đang sở hữu 3 mẫu ô tô điện thuộc các phân khúc xe khác nhau mà quý khách có thể lựa chọn để phù hợp với nhu cầu cá nhân:</li>
+                            <br>
+                            <li style="margin-left: 20px;">● VF 5: SUV hạng A.</li>
+                            <li style="margin-left: 20px;">● VF 6: SUV hạng B.</li>
+                            <li style="margin-left: 20px;">● VF e34: SUV/Crossover hạng C.</li>
+                            <li style="margin-left: 20px;">● VF 8: SUV hạng D.</li>
+                            <li style="margin-left: 20px;">● VF 9: SUV hạng E.</li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- Thêm các câu hỏi khác tương tự -->
+            <!-- ... -->
+        </div>
+        <br>
+
+    </div>
+</section>
+<!-- ***** Our Classes End ***** -->
+
+<!-- ***** Footer Start ***** -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="social">
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>
+                    Copyright © 2025 PTIT
+
+                </p>
+                <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/static/js/jquery-2.1.0.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+
+<!-- Plugins -->
+<script src="/static/js/scrollreveal.min.js"></script>
+<script src="/static/js/waypoints.min.js"></script>
+<script src="/static/js/jquery.counterup.min.js"></script>
+<script src="/static/js/imgfix.min.js"></script>
+<script src="/static/js/mixitup.js"></script>
+<script src="/static/js/accordions.js"></script>
+
+<!-- Global Init -->
+<script src="/static/js/custom.js"></script>
+
+</body>
 </html>

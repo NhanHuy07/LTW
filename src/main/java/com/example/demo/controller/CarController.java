@@ -49,9 +49,37 @@ public class CarController {
         model.addAttribute("list",list);
         return "cars";
     }
-//    @GetMapping("/car/search")
-//    public String searchCar(Model model, @RequestParam(name = "params")Map<String,String>){
-//
-//        return null;
-//    }
+
+    @GetMapping("/cars/filter")
+    public String findByFilters(
+            Model model,
+            @RequestParam(name = "brand", required = false) String brand,
+            @RequestParam(name = "fuel", required = false) String fuel,
+            @RequestParam(name = "color", required = false) String color,
+            @RequestParam(name = "numberOfSeats", required = false) String numberOfSeats, // Thay Long bằng String
+            @RequestParam(name = "pageNumber", defaultValue = "1") Integer pageNumber) {
+
+        // Chuyển chuỗi rỗng thành null
+        if (brand != null && brand.isEmpty()) brand = null;
+        if (fuel != null && fuel.isEmpty()) fuel = null;
+        if (color != null && color.isEmpty()) color = null;
+        if (numberOfSeats != null && numberOfSeats.isEmpty()) numberOfSeats = null;
+
+        Page<Car> list = carService.getAll(pageNumber);
+        if (brand != null || fuel != null || color != null || numberOfSeats != null) {
+            // Chuyển numberOfSeats từ String sang Long nếu cần (phụ thuộc vào carService)
+            Long seats = (numberOfSeats != null) ? Long.valueOf(numberOfSeats) : null;
+            list = carService.findByFilters(brand, fuel, color, seats, pageNumber);
+        }
+
+        model.addAttribute("selectedBrand", brand);
+        model.addAttribute("selectedFuel", fuel);
+        model.addAttribute("selectedColor", color);
+        model.addAttribute("selectedNumberOfSeats", numberOfSeats); // Truyền String để khớp với value
+        model.addAttribute("totalPage", list.getTotalPages());
+        model.addAttribute("currentPage", pageNumber);
+        model.addAttribute("list", list);
+
+        return "cars";
+    }
 }

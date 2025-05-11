@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common-fragments :: head}">
+    <style>
+        .quantity-input {
+            width: 100px;
+        }
+        .price-container {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        .stock-info {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .product-details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <div th:replace="~{fragments/common-fragments :: header}"></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Chi tiết <em>phụ tùng</em></h2>
+                        <img src="/static/images/line-dec.png" alt="">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="/accessories">Phụ tùng</a></li>
+                            <li class="breadcrumb-item" th:if="${accessory.category}">
+                                <a th:href="@{'/accessories/category/' + ${accessory.category}}" th:text="${accessory.category}">Danh mục</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page" th:text="${accessory.name}">Tên phụ tùng</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Thông báo thành công và lỗi -->
+            <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                <span th:text="${success}">Thông báo thành công</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span th:text="${error}">Thông báo lỗi</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="row">
+                <!-- Hình ảnh sản phẩm -->
+                <div class="col-md-5">
+                    <div class="image-container shadow-sm">
+                        <img th:if="${accessory.image}" th:src="@{'/static/images/' + ${accessory.image}}" class="img-fluid" alt="Phụ tùng">
+                        <img th:unless="${accessory.image}" src="/static/images/accessory-default.jpg" class="img-fluid" alt="Phụ tùng">
+                    </div>
+                </div>
+                
+                <!-- Thông tin sản phẩm -->
+                <div class="col-md-7">
+                    <div class="product-details">
+                        <h2 th:text="${accessory.name}">Tên phụ tùng</h2>
+                        <div class="badge badge-primary mb-3" th:text="${accessory.category}">Danh mục</div>
+                        
+                        <div class="price-container mb-3" th:text="${#numbers.formatDecimal(accessory.price, 0, 'COMMA', 0, 'POINT')} + ' VND'">
+                            0 VND
+                        </div>
+                        
+                        <div class="stock-info">
+                            <span class="badge badge-success" th:if="${accessory.stock > 0}" th:text="'Còn ' + ${accessory.stock} + ' sản phẩm'">Còn hàng</span>
+                            <span class="badge badge-danger" th:if="${accessory.stock == 0}">Hết hàng</span>
+                        </div>
+                        
+                        <hr>
+                        
+                        <p class="description" th:text="${accessory.description}">Mô tả sản phẩm</p>
+                        
+                        <hr>
+                        
+                        <!-- Form thêm vào giỏ hàng -->
+                        <form th:if="${accessory.stock > 0}" th:action="@{'/cart/add/' + ${accessory.id}}" method="post" class="mt-4">
+                            <div class="form-group row">
+                                <label for="quantity" class="col-sm-3 col-form-label">Số lượng:</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group quantity-input">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" id="decreaseBtn">-</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="quantity" name="quantity" th:value="${quantity}" min="1" th:max="${accessory.stock}">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" id="increaseBtn">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <div class="col-sm-9 offset-sm-3">
+                                    <button type="submit" class="btn btn-success btn-lg">
+                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
+                                    </button>
+                                    <a href="/accessories" class="btn btn-outline-secondary btn-lg ml-2">
+                                        <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <!-- Thông báo hết hàng -->
+                        <div th:if="${accessory.stock == 0}" class="mt-4">
+                            <div class="alert alert-warning">
+                                <h5><i class="fas fa-exclamation-triangle"></i> Sản phẩm hiện đã hết hàng</h5>
+                                <p>Vui lòng quay lại sau hoặc liên hệ với chúng tôi để biết thêm thông tin.</p>
+                            </div>
+                            <a href="/accessories" class="btn btn-outline-primary">
+                                <i class="fas fa-arrow-left"></i> Quay lại danh sách phụ tùng
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="~{fragments/common-fragments :: footer}"></div>
+    <div th:replace="~{fragments/common-fragments :: scripts}"></div>
+    
+    <script>
+        $(document).ready(function() {
+            // Xử lý nút tăng giảm số lượng
+            $('#increaseBtn').click(function() {
+                var currentVal = parseInt($('#quantity').val());
+                var maxVal = parseInt($('#quantity').attr('max'));
+                if (!isNaN(currentVal) && currentVal < maxVal) {
+                    $('#quantity').val(currentVal + 1);
+                }
+            });
+            
+            $('#decreaseBtn').click(function() {
+                var currentVal = parseInt($('#quantity').val());
+                if (!isNaN(currentVal) && currentVal > 1) {
+                    $('#quantity').val(currentVal - 1);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

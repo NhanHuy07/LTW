@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments/common-fragments :: head}">
+    <style>
+      .appointment-form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      }
+      .car-info {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <div th:replace="~{fragments/common-fragments :: header}"></div>
+
+    <section class="section">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading">
+              <h2>Đặt lịch <em>xem xe</em></h2>
+              <img src="/static/images/line-dec.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Thông báo lỗi và thành công -->
+        <div
+          th:if="${error}"
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <span th:text="${error}">Thông báo lỗi</span>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1">
+            <!-- Thông tin xe -->
+            <div class="card car-info mb-4">
+              <div class="card-header">
+                <h5>Thông tin xe</h5>
+              </div>
+              <div class="card-body">
+                <h4
+                  th:text="${car != null ? car.carName : 'Không có thông tin xe'}"
+                >
+                  Tên xe
+                </h4>
+                <p
+                  th:if="${car != null && car.brand != null}"
+                  th:text="'Hãng xe: ' + ${car.brand}"
+                >
+                  Hãng xe
+                </p>
+              </div>
+            </div>
+
+            <!-- Form đặt lịch -->
+            <div class="card appointment-form">
+              <div class="card-header">
+                <h5>Thông tin đặt lịch</h5>
+              </div>
+              <div class="card-body">
+                <form
+                  th:action="@{/appointments/book}"
+                  method="post"
+                  th:object="${appointment}"
+                >
+                  <!-- Hidden fields -->
+                  <input type="hidden" th:field="*{car.id}" />
+                  <input
+                    type="hidden"
+                    th:if="${appointment.user != null}"
+                    th:field="*{user.id}"
+                  />
+
+                  <div class="form-group">
+                    <label for="name">Họ và tên:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      th:field="*{name}"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      th:field="*{email}"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phoneNumber">Số điện thoại:</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phoneNumber"
+                      th:field="*{phoneNumber}"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="appointmentDate">Ngày giờ xem xe:</label>
+                    <input
+                      type="datetime-local"
+                      class="form-control"
+                      id="appointmentDate"
+                      th:field="*{appointmentDate}"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Ghi chú:</label>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      th:field="*{message}"
+                      rows="3"
+                    ></textarea>
+                  </div>
+
+                  <input type="hidden" th:field="*{status}" value="PENDING" />
+
+                  <div class="form-group">
+                    <a
+                      th:href="@{/car/{id}(id=${car.id})}"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-calendar-check"></i> Đặt lịch hẹn
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div th:replace="~{fragments/common-fragments :: footer}"></div>
+    <div th:replace="~{fragments/common-fragments :: scripts}"></div>
+  </body>
+</html>
