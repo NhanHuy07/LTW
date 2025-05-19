@@ -63,7 +63,7 @@ public class Car {
     @Column(name = "description")
     private List<String> description;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private CarOwner owner;
+//    @ManyToOne
+//    @JoinColumn(name = "owner_id")
+//    private CarOwner owner;
 }

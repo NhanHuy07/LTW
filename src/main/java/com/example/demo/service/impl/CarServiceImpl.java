@@ -36,7 +36,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<Car> getPopularCars() {
-        List<Long> carIds = Arrays.asList(1L, 2L, 3L);
+        List<Long> carIds = Arrays.asList(4L, 2L, 3L);
         return carRepository.findByIdIn(carIds);
     }
 

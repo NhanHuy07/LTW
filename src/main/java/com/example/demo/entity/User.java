@@ -37,6 +37,9 @@ public class User {
     @Column(name = "active")
     public boolean active;
 
+    @Column(name = "activation_code")
+    private String activationCode;
+
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)

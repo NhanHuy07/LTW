@@ -118,7 +118,7 @@
         <!-- Car Information -->
         <div class="col-md-6 car-info">
             <h2 th:text="${car.carName}">VinFast Lux A2.0 Plus</h2>
-            <p class="price" th:text = "${car.price} + ' ' + triệu"></p>
+            <p class="price" th:text = "${#numbers.formatDecimal(car.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></p>
             <div class="detail-item">
                 <i class="fas fa-calendar-alt"></i>
                 <span>Năm sản xuất: 2020</span>
@@ -162,10 +162,16 @@
             <h5>Thông số kỹ thuật</h5>
             <div class="card">
                 <div class="card-body">
-                    <p><strong>Hãng xe:</strong> VinFast</p>
-                    <p><strong>Dòng xe:</strong> Lux A2.0</p>
-                    <p><strong>Kiếu dáng:</strong> Sedan</p>
-                    <p><strong>Số chỗ ngồi:</strong> 5</p>
+                    <p th:text="'Hãng xe: ' + ${car.brand}"><strong>Hãng xe:</strong> VinFast</p>
+
+<!--                    <p><strong>Kiếu dáng:</strong> Sedan</p>-->
+                    <p th:text="'Số chỗ ngồi: ' + ${car.numberOfSeats}"><strong>Số chỗ ngồi:</strong> 5</p>
+                    <p>
+                        <strong>Mô tả:</strong>
+                    <ul>
+                        <li th:each="desc : ${car.description}" th:text="${desc}"></li>
+                    </ul>
+                    </p>
                 </div>
             </div>
         </div>
@@ -174,7 +180,7 @@
             <div class="card">
                 <div class="card-body">
                     <p><strong>Địa điểm:</strong> Thị trấn Đông Anh, Đông Anh, Hà Nội</p>
-                    <p><strong>Đăng bán:</strong> Quang</p>
+<!--                    <p><strong>Đăng bán:</strong> Quang</p>-->
                 </div>
             </div>
         </div>

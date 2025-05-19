@@ -37,7 +37,7 @@
                 <th scope="col">Tên xe</th>
                 <th scope="col">Hãng</th>
                 <th scope="col">Loại</th>
-                <th scope="col">Chủ sở hữu</th>
+<!--                <th scope="col">Chủ sở hữu</th>-->
                 <th scope="col">Thao tác</th>
               </tr>
             </thead>
@@ -73,12 +73,12 @@
                     Mới
                   </span>
                 </td>
-                <td
-                  th:with="owner = ${car != null ? car.owner : null}"
-                  th:text="${owner != null ? car.owner.name : 'Không có'}"
-                >
-                  Nguyễn Văn A
-                </td>
+<!--                <td-->
+<!--                  th:with="owner = ${car != null ? car.owner : null}"-->
+<!--                  th:text="${owner != null ? car.owner.name : 'Không có'}"-->
+<!--                >-->
+<!--                  Nguyễn Văn A-->
+<!--                </td>-->
                 <td>
                   <div class="dropdown">
                     <button

@@ -46,11 +46,10 @@
                                 value=(${car} ? ${car.carName} : ''),
                                 error=(${carNameError})
                             )"/>
-              <th:block th:replace="fragments/account-fragments :: add-product-input(
+              <th:block th:replace="fragments/account-fragments :: add-product-select(
                                 title='Thương hiệu',
                                 name='brand',
-                                placeholder='Nhập thương hiệu',
-                                value=(${car} ? ${car.brand} : ''),
+                                options=(${ {'Toyota', 'Honda', 'Ford', 'Hyundai', 'BMW', 'Mercedes', 'Vinfast'} }),
                                 error=(${brandError})
                             )"/>
             </div>
@@ -77,11 +76,10 @@
                                      options=(${ {'old', 'new'} }),
                                      error=(${typeError})
                             )"/>
-              <th:block th:replace="fragments/account-fragments :: add-product-input(
+              <th:block th:replace="fragments/account-fragments :: add-product-select(
                                     title='Cửa',
                                     name='doors',
-                                    placeholder='Nhập số lượng cửa',
-                                    value=(${car} ? ${car.doors} : ''),
+                                    options=(${ {'2', '4', '6'} }),
                                     error=(${doorsError})
                             )"/>
             </div>
@@ -99,7 +97,15 @@
                                     value=(${car} ? ${car.price} : ''),
                                     error=(${priceError})
                             )"/>
+              <th:block th:replace="fragments/account-fragments :: add-product-input(
+                                    title='Mô tả',
+                                    name='description',
+                                    placeholder='Nhập mô tả',
+                                    value=(${car} ? ${car.id.description} : ''),
+                                    error=(${priceError})
+                            )"/>
             </div>
+
             <div class="form row mt-3">
               <div class="col" style="margin-top: 35px">
                 <input type="file" name="file"/>

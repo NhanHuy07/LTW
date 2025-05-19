@@ -207,6 +207,7 @@
                                 <option value="Hyundai" th:selected="${selectedBrand == 'Hyundai'}">Hyundai</option>
                                 <option value="BMW" th:selected="${selectedBrand == 'BMW'}">BMW</option>
                                 <option value="Mercedes" th:selected="${selectedBrand == 'Mercedes'}">Mercedes</option>
+                                <option value="Vinfast" th:selected="${selectedBrand == 'Vinfast'}">Vinfast</option>
                             </select>
                         </div>
                         <div class="filter-item">
@@ -268,7 +269,7 @@
                                 </div>
                                 <div class="down-content">
                                     <h5 th:text="${car.carName}">Lexus ES 250 2022</h5>
-                                    <p class="price" th:text="Giá + ' ' + ${car.price} + ' ' + 'triệu'"></p> <!-- Giữ nguyên hiển thị giá -->
+                                    <p class="price" th:text="Giá + ': ' +${#numbers.formatDecimal(car.getPrice(), 0, 'COMMA', 0, 'POINT')} + ' VND'"></p> <!-- Giữ nguyên hiển thị giá -->
                                     <ul class="social-icons">
                                         <a th:href="@{'/car/' + ${car.id}}"> Chi tiết xe</a>
                                     </ul>
